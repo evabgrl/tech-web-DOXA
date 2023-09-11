@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Student } from "../models/student.model"
-import { Course } from "../models/course.model"
+import { Student } from "models/student.model"
+import { Course } from "models/course.model"
 import { ConstantsMockService } from "./constantsMock.service"
-import { MajorsAndCoursesDto } from "../models/dto/majorsAndCoursesDto"
+import { MajorsAndCoursesDto } from "models/dto/majorsAndCoursesDto"
 
 @Injectable({
   providedIn: "root",

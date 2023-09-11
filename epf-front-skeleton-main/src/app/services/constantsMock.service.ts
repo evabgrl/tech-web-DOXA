@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
-import { Student } from "../models/student.model"
-import { Course } from "../models/course.model"
-import { Major } from "../models/major.model"
+import { Student } from "models/student.model"
+import { Course } from "models/course.model"
+import { Major } from "models/major.model"
 
 @Injectable({
   providedIn: "root",

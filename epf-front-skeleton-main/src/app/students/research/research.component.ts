@@ -1,11 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core"
 import { Observable } from "rxjs"
-import { MajorsAndCoursesDto } from "../../models/dto/majorsAndCoursesDto"
-import { Major } from "../../models/major.model"
-import { MajorService } from "../../services/major.service"
-import { Course } from "../../models/course.model"
-import { StudentService } from "../../services/student.service"
-import { Student } from "../../models/student.model"
+import { MajorsAndCoursesDto } from "models/dto/majorsAndCoursesDto"
+import { Major } from "models/major.model"
+import { MajorService } from "services/major.service"
+import { Course } from "models/course.model"
+import { StudentService } from "services/student.service"
+import { Student } from "models/student.model"
 
 @Component({
   selector: "epf-research",

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
-import { Course } from "../models/course.model"
+import { Course } from "models/course.model"
 import { ConstantsMockService } from "./constantsMock.service"
 
 @Injectable({

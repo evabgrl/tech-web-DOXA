@@ -1,10 +1,10 @@
 import { Component } from "@angular/core"
 import { map, Observable } from "rxjs"
-import { Student } from "../../models/student.model"
+import { Student } from "models/student.model"
 import { ActivatedRoute, Router } from "@angular/router"
-import { Course } from "../../models/course.model"
-import { CourseService } from "../../services/course.service"
-import { StudentService } from "../../services/student.service"
+import { Course } from "models/course.model"
+import { CourseService } from "services/course.service"
+import { StudentService } from "services/student.service"
 
 @Component({
   selector: "epf-student-details",
