@@ -10,8 +10,8 @@ export class NavbarComponent implements OnInit {
   links: Link[] = []
 
   constructor() {
-    this.links.push(new Link("Students", "students"))
-    this.links.push(new Link("Majors", "majors"))
+    this.links.push({ name: "Students", href: "students" })
+    this.links.push({ name: "Majors", href: "majors" })
   }
 
   ngOnInit(): void {
