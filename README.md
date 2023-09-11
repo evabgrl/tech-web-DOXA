@@ -1,92 +1,183 @@
-# java-angular
+# Set up cours Java Spring Boot
 
+## I. Installation
+**2 méthodes d'installation sont possibles : par téléchargements Internet ou par Clé USB**
+### Windows
+#### Par téléchargements Internet :
+- Docker : https://docs.docker.com/desktop/install/windows-install/
+- Intellij : https://www.jetbrains.com/fr-fr/idea/download/#section=windows
 
+#### Par clé :
+- Récupère le fichier **Windows** et exécute les .exe
 
-## Getting started
+### Mac
+Pour les puces M1 ou M2 choisis *Apple Chip* & *(Apple Silicone)*
+Pour les puces Intel choisis *Intel Chip* & *(Intel)*
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+#### Par téléchargements Internet :
+- Docker  : https://docs.docker.com/desktop/install/mac-install/
+- Intellij : https://www.jetbrains.com/fr-fr/idea/download/#section=mac
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+#### Par clé :
+- Récupère le fichier **Mac** correspondant à la bonne puce et exécute les .exe
 
-## Add your files
+### Linux
+#### Commandes pour les installations :
+- Docker : <br>
+    - `curl -fsSL https://get.docker.com -o get-docker.sh` <br>
+    - `sudo sh get-docker.sh`
+    - `sudo usermod -aG docker $USER`
+- Intellij : <br>
+    - `sudo snap install intellij-idea-ultimate --classic`
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+#### Par clé :
+- Récupère les lignes de commandes dans le fichier du dossier Linux
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/llenet/java-angular.git
-git branch -M main
-git push -uf origin main
-```
+## II. Set up Intellij
+### 1. Création compte
+Intellij est un IDE super complet et est devenu un indispensable pour le développement de projet Java. <br>
 
-## Integrate with your tools
+Avec ses recherches de fichiers optimisées, ses auto-complétions et ses raccourcis à gogo, Intellij améliore grandement l'expérience de développement.
+Le Graal étant que Maven y est de base intégré et que tu puisses
+télécharger n'importe quelle version de Java directement depuis ton IDE (non ce n'est pas un rêve !)<br>
 
-- [ ] [Set up project integrations](https://gitlab.com/llenet/java-angular/-/settings/integrations)
+Cerise sur le gateau grâce à ton compte EPF, tu peux gratuitement obtenir une licence de la version payante (ultimate).
+Elle est essentielle au bon déroulement du TP car, avec cette dernière, tu pourras notamment visualiser ta base de données et interagir avec elle directement depuis IntelliJ. <br>
+Pour te créer un compte, suis ce lien et effectue les actions détaillées ci-dessous : https://www.jetbrains.com/fr-fr/idea/
 
-## Collaborate with your team
+<p align="center">
+<img src="img-readme/main-readme/img.png" width="500"/>
+<img src="img-readme/main-readme/img2.png" width="500"/>
+</p>
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### 2. Licence Intellij
+Pour récupérer une licence gratuite utilise ce lien : https://jetbrains.com/shop/eform/students
 
-## Test and Deploy
+### 3. Lancer Intellij
+Une fois ta licence récupérée, lance l'IDE et relie ton compte
+<p align="center">
+<img src="img-readme/main-readme/img3.png" width="600"/>
+<img src="img-readme/main-readme/img4.png" width="600"/>
+</p>
 
-Use the built-in continuous integration in GitLab.
+### 4. Clonage du projet
+Pour récupérer le repository GitHub du TP, lance `git clone https://github.com/resourcepool/training-spring-boot.git`
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+Tu y trouveras toutes les ressources nécessaires à la suite du TP.
 
-***
+Dans Intellij, effectue ensuite les actions suivantes :
+<p align="center">
+<img src="img-readme/main-readme/img5.png" width="400"/>
+<img src="img-readme/main-readme/img6.png" width="400"/>
+</p>
 
-# Editing this README
+### 5. Téléchargement de Java 17
+Depuis Intellij, tu peux directement télécharger Java 17 : <br>
+<p align="center">
+<img src="img-readme/main-readme/img7.png"/>
+<img src="img-readme/main-readme/img8.png" width="600"/>
+<img src="img-readme/main-readme/img9.png" width="600"/>
+<img src="img-readme/main-readme/img10.png" width="600"/>
+</p>
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### 6. Ouvrir un terminal dans Intellij
+<p align="center">
+<img src="img-readme/main-readme/img11.png" width="600"/>
+</p>
+<br>
+Tu peux également changer de Shell (Surtout utile pour les Windows)<br>
+<br>
+<p align="center">
+<img src="img-readme/main-readme/img12.png" width="500"/>
+</p>
+<br>
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Sélectionne *Git Bash*
+<p align="center">
+<img src="img-readme/main-readme/img13.png" width="500"/>
+</p>
 
-## Name
-Choose a self-explaining name for your project.
+## III. Set up
+de la BDD via Docker
+### 1. Docker
+Lance le Docker Desktop en cliquant sur l'icône, tu dois obtenir l'écran suivant :
+<p align="center">
+<img src="img-readme/main-readme/img14.png" width="800"/>
+</p>
+Ferme et ré-ouvre ton application IntelliJ pour que les changements effectués par l'installation de Docker soit pris en compte.<br>
+Pour s'assurer que ton install Docker a bien fonctionné, lance la commande suivante dans ton terminal :  <br>
+`docker run hello-world` <br>
+Tu dois obtenir ce résultat : <br>
+<br>
+<p align="center">
+<img src="img-readme/main-readme/img15.png" width="600"/>
+</p>
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Tu peux alors lancer la base de données MariaDB qui sera utilisée tout au long du TP :<br>
+`docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=defaultdb -p 3306:3306 mariadb`
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+### 2. Afficher la BDD dans Intellij
+Effectue les étapes suivantes :
+<p align="center">
+<img src="img-readme/main-readme/img16.png" width="700"/>
+<img src="img-readme/main-readme/img17.png" width="700"/>
+</p>
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Installe les drivers si besoin :
+<p align="center">
+<img src="img-readme/main-readme/img18.png" width="500"/>
+</p>
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Saisie les infos (1-3), puis test la connexion à la bdd (4)
+<p align="center">
+<img src="img-readme/main-readme/img19.png" width="500"/>
+<img src="img-readme/main-readme/img20.png"/>
+</p><br> 
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Si c'est valide, clique sur *OK* (5)
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### 3. Initialisation de la BDD
+C'est cool d'avoir une BDD qui fonctionne mais c'est encore plus cool quand on peut lui insérer des données en 2 clics :
+<p align="center">
+<img src="img-readme/main-readme/img21.png" width="500"/>
+</p>
+Clic droit + run : 
+<p align="center">
+<img src="img-readme/main-readme/img22.png" width="400"/>
+<img src="img-readme/main-readme/img23.png" width="500"/>
+</p>
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Tadaaaam (j'avoue un peu plus que 2 clics)
+<p align="center">
+<img src="img-readme/main-readme/img24.png" width="500"/>
+</p>
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## IV. Run du projet (c'est bientôt fini promis !)
+**Deux** façons de faire :
+<p align="center">
+<img src="img-readme/main-readme/img25.png" width="600"/>
+</p>
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+**OU**
+<p align="center">
+<img src="img-readme/main-readme/img26.png" width="600"/>
+</p>
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Ça ouvre :
+<p align="center">
+<img src="img-readme/main-readme/img27.png" width="600"/>
+</p>
+Sélectionne le Java 17 préalablement téléchargé et ajoute l'option `-Xms256m -Xmx256m` (c'est pour éviter que Intellij mange toute ta RAM)<br>
+<br>
+<p align="center">
+<img src="img-readme/main-readme/img28.png" width="600"/>
+<img src="img-readme/main-readme/img29.png" />
+<img src="img-readme/main-readme/img30.png" width="500"/>
+</p>
+Enfin :<br>
+<br>
+<p align="center"><img src="img-readme/main-readme/img31.png" width="800"/></p>
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Alors ça marche ?
+<p align="center"><img src="img-readme/main-readme/img32.png" width="900"/></p>
 
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
