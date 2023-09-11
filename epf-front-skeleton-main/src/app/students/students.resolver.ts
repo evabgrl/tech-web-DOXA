@@ -8,7 +8,9 @@ import { StudentService } from "../services/student.service"
   providedIn: "root",
 })
 export class StudentsResolver implements Resolve<Student[]> {
-  constructor(private studentService: StudentService) {}
+  constructor(private studentService: StudentService) {
+  }
+
   resolve(): Observable<Student[]> {
     return this.studentService.findAll()
   }

@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core"
 import { Observable } from "rxjs"
 import { Major } from "../models/major.model"
 import { MajorStudentsDto } from "../models/dto/MajorStudentsDto"
-import { Course } from "../models/course.model"
 import { MajorsAndCoursesDto } from "../models/dto/majorsAndCoursesDto"
 import { ConstantsMockService } from "./constantsMock.service"
 
@@ -10,7 +9,8 @@ import { ConstantsMockService } from "./constantsMock.service"
   providedIn: "root",
 })
 export class MajorService {
-  constructor(private constantsMockService: ConstantsMockService) {}
+  constructor(private constantsMockService: ConstantsMockService) {
+  }
 
   findAll(): Observable<Major[]> {
     return new Observable((observer) => observer.next(this.constantsMockService.majors))

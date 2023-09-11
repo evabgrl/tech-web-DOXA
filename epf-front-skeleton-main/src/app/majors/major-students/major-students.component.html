@@ -12,12 +12,12 @@
   </thead>
   <tbody>
   <ng-container *ngIf="studentsFromMajor$ | async; let studentsFromMajor">
-  <tr *ngFor="let student of (studentsFromMajor.students)">
-    <td>{{ student.firstName }}</td>
-    <td>{{ student.lastName }}</td>
-    <td>{{ student.birthDate | date : "dd/MM/yyyy" }}</td>
-    <td>{{ student.major!!.name }}</td>
-  </tr>
+    <tr *ngFor="let student of (studentsFromMajor.students)">
+      <td>{{ student.firstName }}</td>
+      <td>{{ student.lastName }}</td>
+      <td>{{ student.birthDate | date : "dd/MM/yyyy" }}</td>
+      <td>{{ student.major!!.name }}</td>
+    </tr>
   </ng-container>
   </tbody>
 </table>

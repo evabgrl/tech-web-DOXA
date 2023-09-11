@@ -3,7 +3,7 @@
 :host {
   display: flex;
   flex-direction: column;
-  padding : 30px;
+  padding: 30px;
 
   h1 {
     display: flex;
@@ -12,8 +12,10 @@
     margin-right: 50px;
     margin-bottom: 0;
   }
-  table{
+
+  table {
     margin-top: 20px;
+
     tbody {
       :hover {
         cursor: pointer;

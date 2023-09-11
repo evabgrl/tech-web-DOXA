@@ -1,4 +1,5 @@
 @use "src/theme";
+
 nav {
   height: 80px;
   background: linear-gradient(to right, theme.$common-purple, theme.$common-red);
@@ -11,10 +12,12 @@ nav {
     img {
       margin-left: 20px;
       height: 60px;
-      &:hover{
+
+      &:hover {
         transform: scale(1.1);
       }
     }
+
     .active {
       text-decoration: underline;
     }
@@ -23,13 +26,15 @@ nav {
 
 .mat-nav-list {
   margin-left: 50px;
-  padding : 0;
+  padding: 0;
   display: flex;
 }
+
 .mat-list-base .mat-list-item {
-  font-size : large;
-  color : theme.$white;
-  &:hover{
+  font-size: large;
+  color: theme.$white;
+
+  &:hover {
     transform: scale(1.2);
   }
 }

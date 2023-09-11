@@ -7,7 +7,9 @@ import { Major } from "../models/major.model"
   providedIn: "root",
 })
 export class ConstantsMockService {
-  constructor() {}
+  constructor() {
+  }
+
   private spanish = new Course("Spanish", 2)
   private german = new Course("German", 2)
   private ioT = new Course("Internet Of Things", 15)

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component } from "@angular/core"
 import { map, Observable } from "rxjs"
 import { Major } from "../models/major.model"
 import { ActivatedRoute } from "@angular/router"
@@ -11,5 +11,6 @@ import { ActivatedRoute } from "@angular/router"
 export class MajorsComponent {
   majors$: Observable<Major[]> = this._route.data.pipe(map((data) => data["majors"]))
 
-  constructor(private _route: ActivatedRoute) {}
+  constructor(private _route: ActivatedRoute) {
+  }
 }

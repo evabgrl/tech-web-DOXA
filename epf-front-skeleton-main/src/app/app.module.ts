@@ -39,4 +39,5 @@ import { ResearchComponent } from "./students/research/research.component"
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

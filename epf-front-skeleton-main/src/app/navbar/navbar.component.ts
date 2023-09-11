@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core"
 import { Link } from "../models/links.model"
+
 @Component({
   selector: "epf-navbar",
   templateUrl: "./navbar.component.html",
@@ -13,5 +14,6 @@ export class NavbarComponent implements OnInit {
     this.links.push(new Link("Majors", "majors"))
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core"
 import { map, Observable } from "rxjs"
-import { Student } from "../../models/student.model"
 import { ActivatedRoute } from "@angular/router"
 import { MajorStudentsDto } from "../../models/dto/MajorStudentsDto"
 
@@ -12,7 +11,9 @@ import { MajorStudentsDto } from "../../models/dto/MajorStudentsDto"
 export class MajorStudentsComponent implements OnInit {
   studentsFromMajor$: Observable<MajorStudentsDto> = this._route.data.pipe(map((data) => data["studentsFromMajor"]))
 
-  constructor(private _route: ActivatedRoute) {}
+  constructor(private _route: ActivatedRoute) {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

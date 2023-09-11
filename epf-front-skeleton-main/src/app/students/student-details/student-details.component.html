@@ -61,7 +61,8 @@
         <div *ngIf="notSelectedCourse" class="alert alert-danger">
           Course is required
         </div>
-        <button type="button" [disabled]="courseSelectModel==null" (click)="addCourseToStudent(student)" mat-raised-button
+        <button type="button" [disabled]="courseSelectModel==null" (click)="addCourseToStudent(student)"
+                mat-raised-button
                 color="primary">Add course
         </button>
       </div>

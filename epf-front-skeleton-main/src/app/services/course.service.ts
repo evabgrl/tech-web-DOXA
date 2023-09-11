@@ -7,7 +7,8 @@ import { ConstantsMockService } from "./constantsMock.service"
   providedIn: "root",
 })
 export class CourseService {
-  constructor(private constantsMockService: ConstantsMockService) {}
+  constructor(private constantsMockService: ConstantsMockService) {
+  }
 
   // FIXME : change to api call with httpclient
   findAll(): Observable<Course[]> {

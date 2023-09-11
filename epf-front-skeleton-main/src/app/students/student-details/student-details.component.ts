@@ -1,8 +1,7 @@
-import { Component, OnInit } from "@angular/core"
+import { Component } from "@angular/core"
 import { map, Observable } from "rxjs"
 import { Student } from "../../models/student.model"
 import { ActivatedRoute, Router } from "@angular/router"
-import { FormControl } from "@angular/forms"
 import { Course } from "../../models/course.model"
 import { CourseService } from "../../services/course.service"
 import { StudentService } from "../../services/student.service"
@@ -18,12 +17,14 @@ export class StudentDetailsComponent {
   courseSelectModel: Course | null = null
   notSelectedCourse: boolean | undefined
   today = new Date(Date.now())
+
   constructor(
     private _route: ActivatedRoute,
     private courseService: CourseService,
     private studentService: StudentService,
     private router: Router,
-  ) {}
+  ) {
+  }
 
   courseClick() {
     this.allCourses$ = this.courseService.findAll()
