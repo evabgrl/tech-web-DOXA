@@ -6,14 +6,11 @@ import { Link } from "models/links.model"
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   links: Link[] = []
 
   constructor() {
     this.links.push({ name: "Students", href: "students" })
     this.links.push({ name: "Majors", href: "majors" })
-  }
-
-  ngOnInit(): void {
   }
 }

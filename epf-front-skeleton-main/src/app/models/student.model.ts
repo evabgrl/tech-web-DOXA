@@ -3,6 +3,7 @@ import { Major } from "./major.model"
 
 export interface Student {
   id?: bigint
+  image?: string
   firstName: string
   lastName: string
   birthDate?: Date

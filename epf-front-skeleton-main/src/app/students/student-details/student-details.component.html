@@ -2,6 +2,12 @@
   <h1>Student's personal data</h1>
   <form (ngSubmit)="save(student)" #studentForm="ngForm">
     <div class="form-group">
+      <label for="firstName">Picture</label>
+      <input type="file" class="form-control" id="image"
+        required
+        [(ngModel)]="student.image">
+    </div>
+    <div class="form-group">
       <label for="firstName">First Name</label>
       <input type="text" class="form-control" id="firstName"
              required
