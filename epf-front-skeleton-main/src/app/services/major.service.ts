@@ -4,16 +4,23 @@ import { Major } from "models/major.model"
 import { MajorStudentsDto } from "models/dto/MajorStudentsDto"
 import { MajorsAndCoursesDto } from "models/dto/majorsAndCoursesDto"
 import { ConstantsMockService } from "./constantsMock.service"
+import { HttpClient } from "@angular/common/http"
 
 @Injectable({
   providedIn: "root",
 })
 export class MajorService {
-  constructor(private constantsMockService: ConstantsMockService) {
+  constructor(private constantsMockService: ConstantsMockService, private http: HttpClient) {
   }
 
+  private majorUrl = "http://localhost:8080/majors"
+
+  // findAll(): Observable<Major[]> {
+  //   return new Observable((observer) => observer.next(this.constantsMockService.majors))
+  // }
+
   findAll(): Observable<Major[]> {
-    return new Observable((observer) => observer.next(this.constantsMockService.majors))
+    return this.http.get<Major[]>(this.majorUrl)
   }
 
   findStudentsFromMajor(majorId: string): Observable<MajorStudentsDto> {

@@ -16,6 +16,6 @@ export class StudentDetailsResolver implements Resolve<Student> {
     if (route.params["id"] == "new") {
       return new Observable((observer) => observer.next({firstName: "", lastName: "", major: {name: "", description: "", students: []}}))
     }
-    return this.studentService.findById(parseInt(route.paramMap.get("id")!!, 10))
+    return this.studentService.findById(parseInt(route.params["id"], 10))
   }
 }

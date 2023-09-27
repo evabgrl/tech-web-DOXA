@@ -15,6 +15,7 @@ import { MatButtonModule } from "@angular/material/button"
 import { MajorsComponent } from "majors/majors.component"
 import { MajorStudentsComponent } from "majors/major-students/major-students.component"
 import { ResearchComponent } from "students/research/research.component"
+import { HttpClientModule } from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ResearchComponent } from "students/research/research.component"
     FormsModule,
     MatIconModule,
     MatButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

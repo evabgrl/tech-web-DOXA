@@ -6,7 +6,7 @@ export interface Student {
   image?: string
   firstName: string
   lastName: string
-  birthDate?: Date
+  birthdate?: Date
   courses?: Course[]
   major: Major
 }

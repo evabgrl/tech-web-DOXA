@@ -34,7 +34,7 @@ export class ConstantsMockService {
     firstName: "Harry",
     lastName: "Cover",
     major: this.mem,
-    birthDate: new Date("1998-10-10"),
+    birthdate: new Date("1998-10-10"),
     courses: [this.german, this.termo],
     id: 1n,
   }
@@ -42,7 +42,7 @@ export class ConstantsMockService {
     firstName: "Jacques",
     lastName: "Climate",
     major: this.mee,
-    birthDate: new Date("1999-11-07"),
+    birthdate: new Date("1999-11-07"),
     courses: [this.german, this.termo],
     id: 2n,
   }
@@ -50,7 +50,7 @@ export class ConstantsMockService {
     firstName: "Alain",
     lastName: "Parfait",
     major: this.min,
-    birthDate: new Date("1999-04-12"),
+    birthdate: new Date("1999-04-12"),
     courses: [this.german, this.ioT, this.java],
     id: 3n,
   }
@@ -58,7 +58,7 @@ export class ConstantsMockService {
     firstName: "Cathy",
     lastName: "Mini",
     major: this.mde,
-    birthDate: new Date("1999-05-12"),
+    birthdate: new Date("1999-05-12"),
     courses: [this.spanish, this.math, this.java],
     id: 4n,
   }
@@ -66,7 +66,7 @@ export class ConstantsMockService {
     firstName: "Côme",
     lastName: "Toulemonde",
     major: this.mis,
-    birthDate: new Date("1999-07-16"),
+    birthdate: new Date("1999-07-16"),
     courses: [this.spanish, this.anatomie, this.math],
     id: 5n,
   }

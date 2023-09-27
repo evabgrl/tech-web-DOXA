@@ -43,12 +43,17 @@ export class StudentDetailsComponent {
   }
 
   save(student: Student) {
-    this.studentService.save(student)
+    const id = this._route.snapshot.params["id"]
+    if (id == "new") {
+      this.studentService.create(student).subscribe()
+    } else {
+      this.studentService.update(id, student).subscribe() // todo mettre à jour le listing
+    }
     this.router.navigate(["students"])
   }
 
   // because the format of the date doesn't fit date picker
   updateBirthdate($event: any, student: Student) {
-    student.birthDate = new Date($event)
+    student.birthdate = new Date($event)
   }
 }
