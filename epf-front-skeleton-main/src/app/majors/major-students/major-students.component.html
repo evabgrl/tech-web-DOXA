@@ -12,7 +12,8 @@
   </thead>
   <tbody>
   <ng-container *ngIf="studentsFromMajor$ | async; let studentsFromMajor">
-    <tr *ngFor="let student of (studentsFromMajor.students)">
+    <h2 *ngIf="studentsFromMajor.length === 0">Aucun étudiant dans cette Majeure</h2>
+    <tr *ngFor="let student of (studentsFromMajor)">
       <td>{{ student.firstName }}</td>
       <td>{{ student.lastName }}</td>
       <td>{{ student.birthdate | date : "dd/MM/yyyy" }}</td>

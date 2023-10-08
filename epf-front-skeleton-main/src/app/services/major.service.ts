@@ -5,6 +5,7 @@ import { MajorStudentsDto } from "models/dto/MajorStudentsDto"
 import { MajorsAndCoursesDto } from "models/dto/majorsAndCoursesDto"
 import { ConstantsMockService } from "./constantsMock.service"
 import { HttpClient } from "@angular/common/http"
+import { Student } from "../models/student.model"
 
 @Injectable({
   providedIn: "root",
@@ -23,11 +24,8 @@ export class MajorService {
     return this.http.get<Major[]>(this.majorUrl)
   }
 
-  findStudentsFromMajor(majorId: string): Observable<MajorStudentsDto> {
-    let major = this.findById(BigInt(majorId))
-    return new Observable((observer) =>
-      observer.next(new MajorStudentsDto(major!!, this.constantsMockService.students.filter(s => s.major === major))),
-    )
+  findStudentsFromMajor(majorId: string): Observable<Student[]> {
+    return this.http.get<Student[]>(this.majorUrl + `/${majorId}/students`)
   }
 
   findById(id: bigint) {

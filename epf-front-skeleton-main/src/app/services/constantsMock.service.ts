@@ -19,7 +19,7 @@ export class ConstantsMockService {
   private math: Course = {name: "Maths", hours: 30}
   private management: Course = {name: "Lean Management", hours: 30}
 
-  private min: Major = {name: "Ingéniérie du Numérique", description: "Des lignes de code partout !!", id: 1n, students: []}
+    private min: Major = {name: "Ingéniérie du Numérique", description: "Des lignes de code partout !!", id: 1n, students: []}
   private msm: Major = {name: "Structure & Matériaux", description: "Beaucoup de béton et des poutres (snif elle a été renomée)", id: 2n, students: []}
 
   private mae: Major = {name: "Aéronautique & Espace", description: "Vive le vent", id: 3n, students: []}
