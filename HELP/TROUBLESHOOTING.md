@@ -43,3 +43,7 @@ C'est que vous avez un soucis de connexion entre votre application et votre DB.
 ## Dépendances externes qui ne compilent pas (Spring, ou autre)
 
 Vous pouvez réimporter le projet maven, en cliquant sur l'onglet "Maven" tout à droite de votre écran.
+
+## Si vous avez des problèmes de contraintes de clé pour les ids de vos @Entity
+`SELECT setval(pg_get_serial_sequence('users', 'id'), coalesce(max(id)+1, 1), false) FROM users;` en réadaptant les variables selon votre modèle de données.
+

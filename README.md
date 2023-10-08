@@ -7,9 +7,6 @@
 - Docker : https://docs.docker.com/desktop/install/windows-install/
 - Intellij : https://www.jetbrains.com/fr-fr/idea/download/#section=windows
 
-#### Par clé :
-- Récupère le fichier **Windows** et exécute les .exe
-
 ### Mac
 Pour les puces M1 ou M2 choisis *Apple Chip* & *(Apple Silicone)*
 Pour les puces Intel choisis *Intel Chip* & *(Intel)*
@@ -17,9 +14,6 @@ Pour les puces Intel choisis *Intel Chip* & *(Intel)*
 #### Par téléchargements Internet :
 - Docker  : https://docs.docker.com/desktop/install/mac-install/
 - Intellij : https://www.jetbrains.com/fr-fr/idea/download/#section=mac
-
-#### Par clé :
-- Récupère le fichier **Mac** correspondant à la bonne puce et exécute les .exe
 
 ### Linux
 #### Commandes pour les installations :
@@ -29,9 +23,6 @@ Pour les puces Intel choisis *Intel Chip* & *(Intel)*
     - `sudo usermod -aG docker $USER`
 - Intellij : <br>
     - `sudo snap install intellij-idea-ultimate --classic`
-
-#### Par clé :
-- Récupère les lignes de commandes dans le fichier du dossier Linux
 
 ## II. Set up Intellij
 ### 1. Création compte
@@ -61,7 +52,7 @@ Une fois ta licence récupérée, lance l'IDE et relie ton compte
 </p>
 
 ### 4. Clonage du projet
-Pour récupérer le repository GitHub du TP, lance `git clone https://github.com/resourcepool/training-spring-boot.git`
+Pour récupérer le repository GitLab du TP, lance `git clone https://gitlab.com/llenet/java-angular.git`
 
 Tu y trouveras toutes les ressources nécessaires à la suite du TP.
 
@@ -112,9 +103,6 @@ Tu dois obtenir ce résultat : <br>
 <p align="center">
 <img src="img-readme/main-readme/img15.png" width="600"/>
 </p>
-
-Tu peux alors lancer la base de données MariaDB qui sera utilisée tout au long du TP :<br>
-`docker run --name mariadb --rm -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=defaultdb -p 3306:3306 mariadb`
 
 ### 2. Afficher la BDD dans Intellij
 Effectue les étapes suivantes :

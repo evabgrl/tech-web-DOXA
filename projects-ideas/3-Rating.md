@@ -17,14 +17,13 @@ En particulier, les fonctionnalités suivantes seront **requises** :
 **Partie publique**
 * Afficher la liste des lieux/films
 * Pouvoir donner un avis sur un lieu/film, avec une note, un résumé et optionnellement un avis détaillé
-* Afficher un graphique TODO voir cette partie avec Laurine
-* Afficher le classement du meilleur lieu/film via une moyenne des notes des différents avis
 
 Vous n'avez pas à implémenter de quelconque sécurité pour le moment (login / password pour l'administration par exemple).
-
-> Vous êtes libre de créer vos modèles comme vous le souhaitez, mais ils devront au moins contenir : experience, education, skills, projects / hobbies.
 
 # Bonus
 Vous avez **déjà tout terminé ?**  
 Voici quelques features qui rendront votre plateforme encore plus attrayante :
-* TODO
+* Afficher le classement du meilleur lieu/film via une moyenne des notes des différents avis
+* Afficher des graphiques sur les notes 
+* Vous amusez pour avoir un front super beau
+* Envoyer un mail au bout de plusieurs avis laissés

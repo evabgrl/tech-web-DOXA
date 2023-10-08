@@ -27,6 +27,5 @@ Voici quelques features qui rendront votre plateforme encore plus attrayante :
 * Autoriser l'import / export des données de votre CV vers un fichier JSON externe
 * Importer la donnée depuis votre compte LinkedIn
 * Proposer une customisation des couleurs / de la bannière
-* Implémenter la sécurité (utiliser Firebase Auth)
 * Ajouter un moyen de s'inscrire à une newsletter et implémenter la gestion de la newsletter dans la section admin
 * Faire en sorte que toutes vos sections utilisent du Markdown et utiliser un éditeur Markdown pour formater votre contenu

@@ -15,15 +15,14 @@ En particulier, les fonctionnalités suivantes seront **requises** :
 **Partie publique**
 * Afficher la liste des quiz disponibles
 * Pouvoir lancer une partie, c'est à dire répondre à toutes les questions d'un quiz
-* Voir le classement des joueurs sur chaque quiz
-* Afficher le profil de chaque joueur, montrant la liste des quiz auquel il/elle a participé, ainsi que ses scores
+* Voir le classement des joueurs en fin de partie
 
 Vous n'avez pas à implémenter de quelconque sécurité pour le moment (login / password pour l'administration par exemple).
-
-> TODO Vous êtes libre de créer vos modèles comme vous le souhaitez, mais ils devront au moins contenir : experience, education, skills, projects / hobbies.
 
 # Bonus
 Vous avez **déjà tout terminé ?**  
 Voici quelques features qui rendront votre plateforme encore plus attrayante :
-* Pouvoir inviter un ami à répondre à un quiz
-* TODO
+* Afficher le profil de chaque joueur, montrant la liste des quiz auquel il/elle a participé, ainsi que ses scores
+* Faire un plateau de jeu en front avec les pions qui bougent / des cartes qui se retournent 
+* Envoyer un mail à la fin de chaque partie aux joueurs avec les questions, les scores, le classement
+* Ajouter un chronomètre pour les temps de réponse aux questions
