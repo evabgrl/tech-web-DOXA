@@ -17,15 +17,14 @@
   <tbody>
   <tr *ngFor="let student of (students$ | async)" routerLink="/student-details/{{student.id}}">
     <td>
-      <img src="assets/defaultPicture.svg" alt="Photo manquante">
-<!--  todo remplacer cette image par celle récupéré dans le backend -->
+      <img [src]="student.image" alt="Pas de photo">
     </td>
     <td>{{ student.firstName }}</td>
     <td>{{ student.lastName }}</td>
     <td>{{ student.birthdate | date : "dd/MM/yyyy" }}</td>
     <td>{{ student.major!!.name }}</td>
     <td>
-      <button mat-icon-button color="warn" (click)="deleteStudent(student)">
+      <button mat-icon-button color="warn" (click)="deleteStudent($event, student)">
         <mat-icon>delete</mat-icon>
       </button>
     </td>

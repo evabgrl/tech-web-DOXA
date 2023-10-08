@@ -3,10 +3,11 @@
   <form (ngSubmit)="save(student)" #studentForm="ngForm">
     <div class="form-group">
       <label for="image">Picture</label>
-      <input type="file" class="form-control" id="image"
+      <input type="file" class="form-control" id="image" (change)="onFileSelected($event)"
 
         [(ngModel)]="student.image" name="image">
     </div>
+
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input type="text" class="form-control" id="firstName"
@@ -18,6 +19,7 @@
         First Name is required
       </div>
     </div>
+
     <div class="form-group">
       <label for="lastName">Last Name</label>
       <input type="text" class="form-control" id="lastName"
@@ -29,6 +31,7 @@
         Last Name is required
       </div>
     </div>
+
     <div class="form-group">
       <label for="birthDate">Birthdate</label>
       <input type="date" class="form-control" id="birthDate"
@@ -40,17 +43,15 @@
         Birthdate is required
       </div>
     </div>
-    <div class="form-group">
+
+    <div *ngIf="allMajors$ | async; let allMajors" class="form-group">
       <label for="major">Major</label>
-      <input type="text" class="form-control" id="major"
-             required
-             [(ngModel)]="student.major!!.name" name="major"
-             #major="ngModel">
-      <div [hidden]="major.valid || major.pristine"
-           class="alert alert-danger">
-        Major is required
-      </div>
+      <select id="major" [(ngModel)]="majorSelectModel" name="majors" class="form-control">
+        <option [ngValue]="null" [disabled]="true">Select a major</option>
+        <option *ngFor="let major of allMajors" [ngValue]="major">{{major.name}}</option>
+      </select>
     </div>
+
     <div class="student-courses">
       <div class="d-flex align-items-center">
         <h3 class="courses-title">Courses</h3>

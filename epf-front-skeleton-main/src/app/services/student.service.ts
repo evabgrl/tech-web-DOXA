@@ -20,11 +20,11 @@ export class StudentService {
   }
 
   findById(id: number): Observable<Student> {
-    return this.http.get<Student>(this.studentsUrl + `/${id}` )
+    return this.http.get<Student>(`${this.studentsUrl}/${id}`)
   }
 
   update(id: number, student: Student): Observable<Student> {
-    return this.http.post<Student>(this.studentsUrl + `/${id}`, student)
+    return this.http.post<Student>(`${this.studentsUrl}/${id}`, student)
   }
 
   create(student: Student): Observable<Student> {
@@ -32,10 +32,7 @@ export class StudentService {
   }
 
   delete(student: Student) {
-    const index = this.constantsMockService.students.indexOf(student)
-    if (index > -1) {
-      this.constantsMockService.students.splice(index, 1)
-    }
+    return this.http.delete(`${this.studentsUrl}/${student.id}`)
   }
 
   addCourseToStudent(student: Student, course: Course) {

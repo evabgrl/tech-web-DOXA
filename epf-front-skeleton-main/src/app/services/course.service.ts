@@ -11,7 +11,7 @@ export class CourseService {
   constructor(private constantsMockService: ConstantsMockService, private http: HttpClient) {
   }
 
-  private coursesUrl = "http://localhost:8080/api/courses"
+  private coursesUrl = "http://localhost:8080/courses"
 
   // // FIXME : change to api call with httpclient
   // findAll(): Observable<Course[]> {
