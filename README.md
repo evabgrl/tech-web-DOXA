@@ -32,7 +32,7 @@ Avec ses recherches de fichiers optimisées, ses auto-complétions et ses raccou
 Le Graal étant que Maven y est de base intégré et que tu puisses
 télécharger n'importe quelle version de Java directement depuis ton IDE (non ce n'est pas un rêve !)<br>
 
-Cerise sur le gateau grâce à ton compte EPF, tu peux gratuitement obtenir une licence de la version payante (ultimate).
+Cerise sur le gateau grâce à ton compte étudiant, tu peux gratuitement obtenir une licence de la version payante (ultimate).
 Elle est essentielle au bon déroulement du TP car, avec cette dernière, tu pourras notamment visualiser ta base de données et interagir avec elle directement depuis IntelliJ. <br>
 Pour te créer un compte, suis ce lien et effectue les actions détaillées ci-dessous : https://www.jetbrains.com/fr-fr/idea/
 

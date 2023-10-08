@@ -1,4 +1,4 @@
-# Projet CV en ligne
+# Projet jeu
 
 Faire un petit jeu de société pour épater la galerie en soirée 
 
