@@ -21,7 +21,6 @@ export class StudentDetailsComponent {
   courseSelectModel: Course | null = null
   notSelectedCourse: boolean | undefined
   today = new Date(Date.now())
-  selectedFile: File | null = null
 
   constructor(
     private _route: ActivatedRoute,
@@ -49,17 +48,8 @@ export class StudentDetailsComponent {
     this.studentService.removeCourseToStudent(student, course)
   }
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0]
-  }
-
   save(student: Student) {
     const id = this._route.snapshot.params["id"]
-
-    if (this.selectedFile !== null) {
-      const formData = new FormData()
-      formData.append('file', this.selectedFile)
-    }
 
     if (this.majorSelectModel !== null) {
       student.major = this.majorSelectModel

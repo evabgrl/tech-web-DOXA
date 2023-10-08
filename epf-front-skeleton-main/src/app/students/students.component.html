@@ -1,12 +1,10 @@
 <div class="d-flex align-items-center">
   <h1>Students</h1>
   <a mat-raised-button color="primary" routerLink="/student-details/new">New</a>
-  <epf-research (searchEvent)="searchByMajorAndCourse($event)"></epf-research>
 </div>
 <table class="table table-hover">
   <thead>
   <tr>
-    <th scope="col">Picture</th>
     <th scope="col">First Name</th>
     <th scope="col">Last Name</th>
     <th scope="col">Birthdate</th>
@@ -16,9 +14,6 @@
   </thead>
   <tbody>
   <tr *ngFor="let student of (students$ | async)" routerLink="/student-details/{{student.id}}">
-    <td>
-      <img [src]="student.image" alt="Pas de photo">
-    </td>
     <td>{{ student.firstName }}</td>
     <td>{{ student.lastName }}</td>
     <td>{{ student.birthdate | date : "dd/MM/yyyy" }}</td>
