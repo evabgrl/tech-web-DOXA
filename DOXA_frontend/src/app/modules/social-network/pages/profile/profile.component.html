@@ -1,0 +1,127 @@
+<section id="section-profile">
+  <div id="middle">
+    <div id="profile">
+      <div id="profile-header">
+        <figure id="profile-header-photo">
+          <img
+            *ngIf="user?.photo"
+            src="http://localhost:8090/api/users/img/{{ user.photo }}"
+          />
+          <img
+            *ngIf="!user?.photo"
+            src="http://localhost:8090/images/no-photo.jpg"
+          />
+          <figcaption *ngIf="user?.username">{{ user.username }}</figcaption>
+          <i *ngIf="user?.isChecked" class="fa-solid fa-check"></i>
+        </figure>
+        <div id="profile-header-data">
+          <div (click)="moveToPosts(posts)">
+            <p>{{ userPostQuantity }}</p>
+            <p>{{ "PROFILE.NUMBER_OF_POSTS" }}</p>
+          </div>
+          <div (click)="goToFriendsPage()" *ngIf="!user?.isChecked">
+            <p>{{ friendsQuantity }}</p>
+            <p>{{ "PROFILE.NUMBER_OF_FRIENDS" }}</p>
+          </div>
+          <div (click)="goToFollowersPage()" *ngIf="user?.isChecked">
+            <p>{{ followersQuantity }}</p>
+            <p>{{ "PROFILE.NUMBER_OF_FOLLOWERS" }}</p>
+          </div>
+          <div (click)="goToFollowingPage()">
+            <p>{{ followingQuantity }}</p>
+            <p>{{ "PROFILE.NUMBER_OF_FOLLOWING" }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="profile-description">
+        <p *ngIf="user?.description">{{ user.description }}</p>
+
+        <p *ngIf="daysUntilElimination" id="deletion-date">
+          {{ "PROFILE.DAYS_UNTIL_ELIMINATION" }}
+        </p>
+      </div>
+
+      <div id="profile-buttons">
+        <button type="button" class="profile-button" [routerLink]="['edit']">
+          <i class="fa-solid fa-pencil"></i> {{ "PROFILE.EDIT_PROFILE" }}
+        </button>
+        <button type="button" class="profile-button" [routerLink]="['liked']">
+          <i class="fa-solid fa-heart"></i> {{ "PROFILE.LIKED_POSTS_BUTTON" }}
+        </button>
+
+        <button
+          type="button"
+          class="profile-button side-profile-button"
+          (click)="followUser()"
+          *ngIf="!abonnement"
+        >
+          <i class="fa-solid fa-plus"></i> {{ "PROFILE.FOLLOW" }}
+        </button>
+        <button
+          type="button"
+          class="profile-button side-profile-button"
+          *ngIf="abonnement"
+          (click)="unfollowUser()"
+        >
+          <i class="fa-solid fa-minus"></i> {{ "PROFILE.STOP_FOLLOWING" }}
+        </button>
+      </div>
+    </div>
+
+    <hr #posts />
+
+    <h3>{{ "PROFILE.POSTS" }}:</h3>
+    <div id="publications">
+      <div id="pinned-post-container" *ngIf="pinnedPost">
+        <post-comp [post]="pinnedPost"></post-comp>
+        <p id="pinned-post-text">
+          <i class="fa-solid fa-thumbtack"></i> {{ "ASIDE.PINNED_POST" }}
+        </p>
+      </div>
+      <posts-list-comp
+        *ngIf="user?.idUser"
+        [idUser]="user.idUser"
+        [page]="'profile'"
+      ></posts-list-comp>
+    </div>
+  </div>
+
+  <aside>
+    <ng-container *ngIf="pinnedPost">
+      <h2><i class="fa-solid fa-thumbtack"></i> {{ "ASIDE.PINNED_POST" }}:</h2>
+      <post-comp [post]="pinnedPost"></post-comp>
+    </ng-container>
+
+    <ng-container *ngIf="!pinnedPost && usersYouMayKnow?.length > 0">
+      <h2>{{ "ASIDE.USERS_MAYBE" }}:</h2>
+      <figure
+        class="users-aside"
+        *ngFor="let userYouMayKnow of usersYouMayKnow"
+        (click)="goToProfile(userYouMayKnow)"
+      >
+        <img
+          *ngIf="userYouMayKnow?.photo"
+          src="http://localhost:8090/api/users/img/{{ userYouMayKnow.photo }}"
+        />
+        <img
+          *ngIf="!userYouMayKnow?.photo"
+          src="http://localhost:8090/images/no-photo.jpg"
+        />
+        <figcaption>
+          {{ userYouMayKnow.username }}
+        </figcaption>
+        <i class="fa-solid fa-check" style="display: none"></i>
+      </figure>
+    </ng-container>
+
+    <img
+      *ngIf="!pinnedPost && usersYouMayKnow?.length == 0"
+      src="../../../../../assets/img/no_users_you_may_know_BG.svg"
+      alt="This user has no other users that you may know of."
+      id="aside-img"
+    />
+  </aside>
+</section>
+
+<router-outlet></router-outlet>

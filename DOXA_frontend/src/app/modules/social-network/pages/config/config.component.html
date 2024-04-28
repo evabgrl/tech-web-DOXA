@@ -1,0 +1,59 @@
+<section id="section-settings">
+  <h1>{{ "SETTINGS.TITLE" }}</h1>
+
+  <div id="configurations">
+    <div class="configuration-box">
+      <i class="fa-solid fa-bell notif-icon"></i>
+      <div class="configuration-data">
+        <h2>{{ "SETTINGS.NOTIFICATIONS_TITLE" }}</h2>
+        <p>{{ "SETTINGS.NOTIFICATIONS_TEXT" }}</p>
+      </div>
+
+      <div class="option">
+        <label class="notif-input">
+          <input
+            type="checkbox"
+            [checked]="inputCheck"
+            (change)="changeNotifications()"
+          />
+          <i></i>
+        </label>
+      </div>
+    </div>
+
+    <div class="configuration-box">
+      <i class="fa-solid fa-language notif-icon"></i>
+      <div class="configuration-data">
+        <h2>{{ "SETTINGS.LANGUAGE_TITLE" }}</h2>
+        <p>{{ "SETTINGS.LANGUAGE_TEXT" }}</p>
+      </div>
+    </div>
+
+    <div class="configuration-box">
+      <i class="fa-solid fa-user-pen notif-icon"></i>
+      <div class="configuration-data">
+        <h2>{{ "SETTINGS.ACCOUNT_TITLE" }}</h2>
+        <p>{{ "SETTINGS.ACCOUNT_TEXT" }}</p>
+      </div>
+    </div>
+
+    <div class="configuration-box" *ngIf="authService.hasRole('admin', 'role')">
+      <i class="fa-solid fa-lock notif-icon"></i>
+      <div class="configuration-data">
+        <h2>{{ "SETTINGS.ADMIN_TITLE" }}</h2>
+        <p>{{ "SETTINGS.ADMIN_TEXT" }}</p>
+      </div>
+
+      <div class="option">
+        <button [routerLink]="['/admin']">{{ "SETTINGS.ADMIN_BUTTON" }}</button>
+      </div>
+    </div>
+
+    <div class="configuration-box">
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      <div class="configuration-data">
+        <h2>{{ "SETTINGS.LOGOUT" }}</h2>
+      </div>
+    </div>
+  </div>
+</section>

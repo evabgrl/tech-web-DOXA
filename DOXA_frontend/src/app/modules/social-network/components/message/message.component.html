@@ -1,0 +1,15 @@
+<div
+  class="message"
+  *ngIf="message"
+  #messageEl
+  (mousedown)="deleteMessageMouseDown()"
+  (mouseup)="deleteMessageMouseUp()"
+  [ngStyle]="{
+    'background-color': '#7f5af0',
+    'margin-left': 'auto',
+    'border-radius': '15px 2px 15px 15px'
+  }"
+>
+  <p class="message-text">{{ message.text }}</p>
+  <p class="message-date">{{ message.date | date : "short" }}</p>
+</div>
