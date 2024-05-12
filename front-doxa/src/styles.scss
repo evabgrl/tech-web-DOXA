@@ -1,0 +1,24 @@
+@import "./bootstrap/_bootstrap";
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  cursor: url("../src/assets/cursor_gold.cur"), auto;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  cursor: url("../src/assets/cursor_gold.cur"), auto;
+}
+
+table {
+  font-size: medium;
+  tr {
+    height: 57px;
+    td {
+      vertical-align: middle;
+    }
+  }
+}

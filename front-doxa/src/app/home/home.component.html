@@ -1,0 +1,51 @@
+<div>
+  <p class="title">Bonjour à vous et bienvenue sur DOXA!</p>
+  <!-- <img src="../../assets/brain.gif.gif" /> -->
+  <p class="welcome">Le principe est simple : l'anecdote est-elle vraie ou fausse ?</p>
+</div>
+
+<!-- Barre d'écriture pour écrire un nouveau poste -->
+<div class="textarea-container">
+  <textarea type="text" placeholder="Raconte-nous ton anecdote croustillante" [(ngModel)]="nouveauPoste"></textarea>
+  <button class="publier" (click)="ajouterPoste()">Publier</button>
+</div>
+
+<!-- Encadré pour afficher chaque anecdote -->
+<div *ngFor="let anecdote of anecdotes">
+  <div class="anecdote-container">
+    <div class="anecdote-text">{{ anecdote.text }}</div>
+    <div class="buttons-container">
+      <div class="buttons">
+        <button class="image-button" (click)="toggleCommentaires(anecdote.idPost)">
+          <img src="../../assets/commentaire.png" />
+        </button>
+        <button class="image-button" (click)="afficherPopin('vraie', anecdote)">
+          <img src="../../assets/true.png" />
+        </button>
+        <button class="image-button" (click)="afficherPopin('fausse', anecdote)">
+          <img src="../../assets/false.png" />
+        </button>
+      </div>
+    </div>
+    <div *ngIf="commentairesVisibles[anecdote.idPost]" class="comment-section">
+      <p>Commentaires :</p>
+      <ul>
+        <!-- <li *ngFor="let commentaire of anecdote.comments">{{ commentaire.text }}</li> -->
+        <div class="comment-container">
+          <div class="comment-author">John Doe</div>
+          <div class="comment-text">Ceci est un commentaire.</div>
+          <div class="comment-date">12 mai 2024</div>
+        </div>
+        <div class="add-comment-container">
+          <textarea class="add-comment-textarea" placeholder="Ajouter un commentaire"></textarea>
+          <button class="add-comment-button">Ajouter</button>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="userReachedBottom" class="bottom-message">
+  <img src="../../assets/no_photo.jpg" class="photo" />
+  <p>Oh non ! Il n'y a pas plus d'anecdotes croustillantes pour aujourd'hui.</p>
+</div>

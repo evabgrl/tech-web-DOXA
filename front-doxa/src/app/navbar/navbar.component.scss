@@ -1,0 +1,36 @@
+$common-purple-light: #9370db;
+$common-gold: #ffd700;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-image: url("../../assets/background2.jpg");
+  background-size: cover;
+  background-position: center;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      width: 70px;
+      height: auto;
+      margin-right: 10px; /* espace entre le logo et le nom du site */
+    }
+
+    .site-name {
+      font-size: 20px;
+    }
+  }
+
+  .search-autocomplete {
+    flex-grow: 1; /* la barre de recherche avec l'autocomplete prendra tout l'espace disponible */
+  }
+
+  .profile-link {
+    margin-left: 20px; /* espace entre le lien vers le profil et les autres éléments */
+  }
+}

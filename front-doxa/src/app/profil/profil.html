@@ -1,0 +1,31 @@
+<!-- profil.component.html -->
+
+<div class="profil-container">
+  <h1>Profil Utilisateur</h1>
+
+  <!-- Afficher la photo de profil -->
+  <img [src]="user?.photo" alt="Photo de profil" class="profil-photo" *ngIf="user?.photo" />
+
+  <!-- Afficher les données du profil -->
+  <div class="profil-details" *ngIf="user">
+    <p><strong>Nom d'utilisateur :</strong> {{ user?.username }}</p>
+    <p><strong>Description :</strong> {{ user?.description }}</p>
+    <p><strong>Date de création du compte :</strong> {{ user?.creationDate }}</p>
+    <p><strong>Compte vérifié :</strong> {{ user?.isChecked ? 'Oui' : 'Non' }}</p>
+
+    <div *ngIf="user.comments?.length">
+      <p><strong>Commentaires :</strong></p>
+      <ul>
+        <li *ngFor="let comment of user.comments">{{ comment.text }}</li>
+      </ul>
+    </div>
+
+    <!-- Afficher les listes de posts -->
+    <div *ngIf="user.posts?.length">
+      <p><strong>Posts :</strong></p>
+      <ul>
+        <li *ngFor="let post of user.posts">{{ post.text }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

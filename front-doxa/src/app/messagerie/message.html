@@ -1,0 +1,12 @@
+<div class="message-container">
+  <div class="messages">
+    <div *ngFor="let message of messages">
+      <div>{{ message.userTransmitter }}</div>
+      <div>{{ message.text }}</div>
+    </div>
+  </div>
+  <div class="message-input">
+    <textarea [(ngModel)]="newMessage.text" placeholder="Enter your message"></textarea>
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

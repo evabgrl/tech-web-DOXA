@@ -1,0 +1,15 @@
+<!-- Overlay pour fermer la popin lorsqu'on clique à l'extérieur -->
+<div class="popin-overlay" *ngIf="popinOpen" (click)="closePopin()"></div>
+
+<!-- Contenu de la popin -->
+<div class="popin-container" *ngIf="popinOpen">
+  <div class="popin-content">
+    <!-- <h2>{{ popinTitle }}</h2>
+    <p>{{ popinMessage }}</p>
+    <p>{{ popinExplanation }}</p> -->
+    <p>TEST</p>
+
+    <!-- Bouton pour fermer la popin -->
+    <button (click)="closePopin()">Fermer</button>
+  </div>
+</div>
