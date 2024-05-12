@@ -26,7 +26,7 @@ public class UserDTO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_user")
-	private Long idUser;
+	private Long id;
 
 	@Column(name = "username", unique = true, nullable = false)
 	private String username;
@@ -56,10 +56,10 @@ public class UserDTO {
 	@OneToMany
 	private List<TrueDTO> likes;
 
-	@OneToMany
+	@OneToMany(mappedBy = "userTransmitter")
 	private List<MessageDTO> messagesTransmitted;
 
-	@OneToMany
+	@OneToMany(mappedBy = "userReceiver")
 	private List<MessageDTO> messagesReceived;
 
 	@OneToMany
@@ -67,7 +67,7 @@ public class UserDTO {
 
 	public UserDTO(final Long idUser, final String username, final String photo, final String description, final Date creationDate,
 			final Boolean isChecked) {
-		this.idUser = idUser;
+		id = idUser;
 		this.username = username;
 		this.photo = photo;
 		this.description = description;

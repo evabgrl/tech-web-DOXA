@@ -16,7 +16,7 @@ import { MessageComponent } from "messagerie/message"
 import { PopinComponent } from "popin/popin.component"
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, MessageComponent],
+  declarations: [AppComponent, NavbarComponent, HomeComponent, MessageComponent, PopinComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,7 +27,6 @@ import { PopinComponent } from "popin/popin.component"
     MatButtonModule,
     HttpClientModule,
     MatAutocompleteModule,
-    PopinComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

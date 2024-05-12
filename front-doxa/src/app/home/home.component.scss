@@ -51,8 +51,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 800px;
     height: 300px;
+    transition: height 0.3s ease;
   }
-
+  .anecdote-container.expanded {
+    height: 500px;
+  }
   .anecdote-text {
     font-size: 24px; /* Taille de police plus grande */
     text-align: center;

@@ -60,7 +60,7 @@ public class CommentController {
 
 	@GetMapping("/Post/{id}")
 	public ResponseEntity<List<CommentDTO>> getCommentsByPostId(@PathVariable final Long id) {
-		final var comments = commentService.toList(id);
+		final var comments = commentService.toList();
 		return new ResponseEntity<>(comments, HttpStatus.OK);
 	}
 }

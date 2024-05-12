@@ -27,14 +27,12 @@ public class MessageDTO {
 	@Column(name = "text", nullable = false)
 	private String text;
 
-	// L'utilisateur qui a envoyé le message
 	@ManyToOne
-	@JoinColumn(name = "id_user_transmitter", nullable = false)
+	@JoinColumn(name = "user_transmitter_id", nullable = false)
 	private UserDTO userTransmitter;
 
-	// L'utilisateur qui a reçu le message
 	@ManyToOne
-	@JoinColumn(name = "id_user_receiver", nullable = false)
+	@JoinColumn(name = "user_receiver_id", nullable = false)
 	private UserDTO userReceiver;
 
 	@Column(name = "date", nullable = false)

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   commentaireEnCours: { [postId: number]: boolean } = {}
   userReachedBottom = false
   commentairesVisibles: { [postId: number]: boolean } = {}
+  commentSectionStatus: { [postId: number]: boolean } = {}
 
   constructor(private postService: PostService, private commentService: CommentService, private dialog: MatDialog) {}
 
@@ -77,6 +78,7 @@ export class HomeComponent implements OnInit {
         isTrue: true,
       }
       this.anecdotes.unshift(nouvelleAnecdote)
+      this.commentSectionStatus[nouvelleAnecdote.idPost] = false
       this.nouveauPoste = ""
     }
   }
@@ -121,21 +123,19 @@ export class HomeComponent implements OnInit {
     this.afficherPopin("Marquer l'anecdote comme fausse", anecdote)
   }
 
-  // Méthode pour afficher la popin de confirmation
-  afficherPopin(message: string, anecdote: Post) {
+  afficherPopin(text: string, anecdote: Post) {
     const dialogRef = this.dialog.open(PopinComponent, {
       width: "250px",
-      data: { message: message },
+      data: { text: text },
     })
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        // Si l'utilisateur confirme, effectuez l'action correspondante
-        if (message.includes("vraie")) {
-          anecdote.isTrue = true
-        } else if (message.includes("fausse")) {
-          anecdote.isTrue = false
-        }
+        // Logique à exécuter si l'utilisateur confirme
+        console.log("L'utilisateur a confirmé.")
+      } else {
+        // Logique à exécuter si l'utilisateur annule
+        console.log("L'utilisateur a annulé.")
       }
     })
   }

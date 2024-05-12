@@ -9,6 +9,6 @@ import com.ece.doxa_backend.DTO.FalseDTO;
 @Repository
 public interface FalseDAO extends JpaRepository<FalseDTO, Long> {
 
-	@Query(value = "SELECT * FROM falses l WHERE l.id_post = ?1 && l.id_user = ?2", nativeQuery = true)
+	@Query(value = "SELECT * FROM False l WHERE l.id_post = ?1 && l.id_user = ?2", nativeQuery = true)
 	FalseDTO findByPostAndUser(Long idPost, Long idUser);
 }

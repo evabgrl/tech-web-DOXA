@@ -7,12 +7,12 @@ import com.ece.doxa_backend.DTO.AbonnementDTO;
 
 public interface AbonnementDAO extends JpaRepository<AbonnementDTO, Long> {
 
-	@Query(value = "SELECT * FROM followerships f WHERE " + "f.id_user_checked = ?1 AND f.id_user_follower = ?2", nativeQuery = true)
+	@Query(value = "SELECT * FROM Abonnement a WHERE " + "a.userChecked.idUser = ?1 AND a.userFollower.idUser = ?2", nativeQuery = true)
 	AbonnementDTO findByUsers(Long idUserChecked, Long idUserFollower);
 
-	@Query(value = "SELECT COUNT(*) FROM followerships f WHERE " + "f.id_user_checked = ?", nativeQuery = true)
+	@Query(value = "SELECT COUNT(*) FROM Abonnement a WHERE " + "a.userChecked.idUser = ?", nativeQuery = true)
 	Integer findFollowersNumber(Long idUser);
 
-	@Query(value = "SELECT COUNT(*) FROM followerships f WHERE " + "f.id_user_follower = ?", nativeQuery = true)
+	@Query(value = "SELECT COUNT(*) FROM Abonnement a WHERE " + "a.userFollower.idUser = ?", nativeQuery = true)
 	Integer findFollowingNumber(Long idUser);
 }

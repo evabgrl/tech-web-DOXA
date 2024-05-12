@@ -36,8 +36,8 @@ public class MessageService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<MessageDTO> findByUsers(final Long idUser1, final Long idUser2, final Integer page) {
-		return repository.findByUsers(idUser1, idUser2, page);
+	public List<MessageDTO> findByUserTransmitterIdAndUserReceiverId(final Long userTransmitterId, final Long userReceiverId) {
+		return repository.findByUserTransmitterIdAndUserReceiverId(userTransmitterId, userReceiverId);
 	}
 
 	@Transactional(readOnly = true)

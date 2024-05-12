@@ -38,7 +38,7 @@ public class AbonnementService {
 
 	@Transactional(readOnly = true)
 	public AbonnementDTO findByUsers(final UserDTO userChecked, final UserDTO userFollower) {
-		return repository.findByUsers(userChecked.getIdUser(), userFollower.getIdUser());
+		return repository.findByUsers(userChecked.getId(), userFollower.getId());
 	}
 
 	@Transactional(readOnly = true)

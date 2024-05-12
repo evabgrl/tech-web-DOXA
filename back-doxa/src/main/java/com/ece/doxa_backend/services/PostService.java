@@ -61,16 +61,6 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<PostDTO> findTrendFeed(final Integer from) {
-		return repository.findTrendFeed(from);
-	}
-
-	@Transactional(readOnly = true)
-	public Long findLastIdPostFromTrendFeed(final Long idUser) {
-		return repository.findLastIdPostFromTrendFeed(idUser);
-	}
-
-	@Transactional(readOnly = true)
 	public List<PostDTO> findPostsByUserId(final Long idUser, final Integer from) {
 		return repository.findPostsByUser(idUser, from);
 	}
@@ -78,16 +68,6 @@ public class PostService {
 	@Transactional(readOnly = true)
 	public Long findLastIdPostFromUserPosts(final Long idUser) {
 		return repository.findLastIdPostFromPostsByUser(idUser);
-	}
-
-	@Transactional(readOnly = true)
-	public List<PostDTO> findLikedPostsByUserId(final Long idUser, final Integer from) {
-		return repository.findLikedPostsByUser(idUser, from);
-	}
-
-	@Transactional(readOnly = true)
-	public Long findLastIdPostFromLikedPostsUser(final Long idUser) {
-		return repository.findLastIdPostFromLikedPostsByUser(idUser);
 	}
 
 	public List<PostDTO> getAllPosts() {

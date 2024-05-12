@@ -12,11 +12,12 @@
 
 <!-- Encadré pour afficher chaque anecdote -->
 <div *ngFor="let anecdote of anecdotes">
-  <div class="anecdote-container">
+  <div class="anecdote-container" [ngClass]="{ expanded: commentairesVisibles[anecdote.idPost] }">
     <div class="anecdote-text">{{ anecdote.text }}</div>
     <div class="buttons-container">
       <div class="buttons">
         <button class="image-button" (click)="toggleCommentaires(anecdote.idPost)">
+          <!-- {{ commentairesVisibles[anecdote.idPost] ? "Masquer Commentaires" : "Afficher Commentaires" }} -->
           <img src="../../assets/commentaire.png" />
         </button>
         <button class="image-button" (click)="afficherPopin('vraie', anecdote)">

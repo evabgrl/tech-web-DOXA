@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.CommentDAO;
 import com.ece.doxa_backend.DTO.CommentDTO;
+import com.ece.doxa_backend.DTO.PostDTO;
 
 @Service
 public class CommentService {
@@ -32,11 +33,13 @@ public class CommentService {
 
 	@Transactional(readOnly = true)
 	public CommentDTO findById(final Long id) {
-		return repository.findById(id).orElse(null);
+		final var postDTO = new PostDTO();
+		postDTO.setIdPost(id);
+		return repository.findById(postDTO).orElse(null);
 	}
 
 	@Transactional(readOnly = true)
-	public List<CommentDTO> toList(final Long idPost) {
-		return repository.findAll(idPost);
+	public List<CommentDTO> toList(final PostDTO post) {
+		return repository.findAllByPost(post);
 	}
 }
