@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "True")
+@Table(name = "TrueDoxa")
 public class TrueEntity {
 
 	@Id

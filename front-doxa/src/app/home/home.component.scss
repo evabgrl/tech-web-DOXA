@@ -49,11 +49,11 @@
     flex-direction: column;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 800px;
-    height: 200px;
+    height: 400px;
     transition: height 0.3s ease;
   }
   .anecdote-container.expanded {
-    height: 500px;
+    height: 600px;
   }
   .anecdote-text {
     font-size: 24px; /* Taille de police plus grande */

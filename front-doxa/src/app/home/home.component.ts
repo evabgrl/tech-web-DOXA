@@ -21,50 +21,62 @@ export class HomeComponent implements OnInit {
   commentairesVisibles: { [postId: number]: boolean } = {}
   commentSectionStatus: { [postId: number]: boolean } = {}
   explicationVisible: { [postId: number]: boolean } = {}
+  currentUser: User = {
+    idUser: 1,
+    username: "John Doe",
+    photo: "assets/téléchargement(1).jpg",
+    description: "Description de l'utilisateur",
+    creationDate: new Date(),
+    isChecked: false,
+    notifications: [],
+    comments: [],
+    following: [],
+    followers: [],
+    likes: [],
+    messagesTransmitted: [],
+    messagesReceived: [],
+    posts: [],
+  }
 
   constructor(private postService: PostService, private commentService: CommentService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getPosts()
 
-    // this.anecdotes = [
-    //   {
-    //     idPost: 1,
-    //     date: new Date(),
-    //     user: this.user,
-    //     text: "Contenu de la nouvelle anecdote",
-    //     comments: [],
-    //     reactions: [],
-    //     isTrue: true,
-    //   },
-    //   {
-    //     idPost: 2,
-    //     date: new Date(),
-    //     user: this.user,
-    //     text: "Contenu de la 2eme anecdote",
-    //     comments: [],
-    //     reactions: [],
-    //     isTrue: true,
-    //   },
-    //   {
-    //     idPost: 3,
-    //     date: new Date(),
-    //     user: this.user,
-    //     text: "Contenu de la 3eme anecdote",
-    //     comments: [],
-    //     reactions: [],
-    //     isTrue: true,
-    //   },
-    //   {
-    //     idPost: 4,
-    //     date: new Date(),
-    //     user: this.user,
-    //     text: "Contenu de la 4eme anecdote",
-    //     comments: [],
-    //     reactions: [],
-    //     isTrue: true,
-    //   },
-    // ]
+    this.posts = [
+      {
+        idPost: 1,
+        date: new Date(),
+        user: this.currentUser,
+        text: "Ceci était l'anecdote test, mais actuellement ma route a un problème CORS que je ne parviens pas à régler donc je vais mettre quelques anecdotes afin que tu vois le travail effectué",
+        comments: [],
+        isTrue: true,
+      },
+      {
+        idPost: 2,
+        date: new Date(),
+        user: this.currentUser,
+        text: "En 1889, la reine d'Italie Margherita Savoy a commandé la première livraison de pizza",
+        comments: [],
+        isTrue: true,
+      },
+      {
+        idPost: 3,
+        date: new Date(),
+        user: this.currentUser,
+        text: "Il y a autant de plis sur la toque d'un chef que de façon de cuire un oeuf",
+        comments: [],
+        isTrue: true,
+      },
+      {
+        idPost: 4,
+        date: new Date(),
+        user: this.currentUser,
+        text: "les humains ont pour seules empreintes uniques les empreintes digitales",
+        comments: [],
+        isTrue: false,
+      },
+    ]
   }
   getPosts(): void {
     this.postService.getAllPosts().subscribe((posts) => {
@@ -78,7 +90,7 @@ export class HomeComponent implements OnInit {
     if (this.nouveauPoste.trim() !== "") {
       const currentUser: User = {
         idUser: 1,
-        username: "John Doe",
+        username: "Eva Abgrall",
         photo: "assets/téléchargement(1).jpg",
         description: "Description de l'utilisateur",
         creationDate: new Date(),
@@ -113,7 +125,7 @@ export class HomeComponent implements OnInit {
         // Simuler un utilisateur pour le commentaire
         const currentUser: User = {
           idUser: 1,
-          username: "John Doe",
+          username: "Eva Abgrall",
           photo: "assets/téléchargement(1).jpg",
           description: "Description de l'utilisateur",
           creationDate: new Date(),
