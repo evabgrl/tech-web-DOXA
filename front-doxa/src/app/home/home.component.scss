@@ -47,10 +47,9 @@
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 800px;
-    height: 300px;
+    height: 200px;
     transition: height 0.3s ease;
   }
   .anecdote-container.expanded {
@@ -66,6 +65,7 @@
     width: 100%;
     display: flex;
     justify-content: center; /* Centrer les boutons */
+    align-items: flex-end;
   }
 
   .buttons {
@@ -77,7 +77,7 @@
   }
 
   .image-button img {
-    width: 30px; /* Augmenter la taille des images */
+    width: 50px; /* Augmenter la taille des images */
     height: auto;
   }
 

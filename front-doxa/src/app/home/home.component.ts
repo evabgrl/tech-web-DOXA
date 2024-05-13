@@ -1,10 +1,10 @@
 import { Component, OnInit, HostListener } from "@angular/core"
-import { Post } from "models/post"
+
 import { User } from "models/user"
 import { PostService } from "services/post.service"
 import { CommentService } from "services/comment.service"
 import { MatDialog } from "@angular/material/dialog"
-import { PopinComponent } from "popin/popin.component"
+import { Post } from "models/Post"
 
 @Component({
   selector: "app-home",
@@ -20,49 +20,52 @@ export class HomeComponent implements OnInit {
   userReachedBottom = false
   commentairesVisibles: { [postId: number]: boolean } = {}
   commentSectionStatus: { [postId: number]: boolean } = {}
+  explicationVisible: { [postId: number]: boolean } = {}
 
   constructor(private postService: PostService, private commentService: CommentService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    // Simuler des données d'anecdotes
-    this.anecdotes = [
-      {
-        idPost: 1,
-        date: new Date(),
-        user: this.user,
-        text: "Contenu de la nouvelle anecdote",
-        comments: [],
-        reactions: [],
-        isTrue: true,
-      },
-      {
-        idPost: 2,
-        date: new Date(),
-        user: this.user,
-        text: "Contenu de la 2eme anecdote",
-        comments: [],
-        reactions: [],
-        isTrue: true,
-      },
-      {
-        idPost: 3,
-        date: new Date(),
-        user: this.user,
-        text: "Contenu de la 3eme anecdote",
-        comments: [],
-        reactions: [],
-        isTrue: true,
-      },
-      {
-        idPost: 4,
-        date: new Date(),
-        user: this.user,
-        text: "Contenu de la 4eme anecdote",
-        comments: [],
-        reactions: [],
-        isTrue: true,
-      },
-    ]
+    this.postService.getAllPosts().subscribe((posts: Post[]) => {
+      this.anecdotes = posts
+    })
+    // this.anecdotes = [
+    //   {
+    //     idPost: 1,
+    //     date: new Date(),
+    //     user: this.user,
+    //     text: "Contenu de la nouvelle anecdote",
+    //     comments: [],
+    //     reactions: [],
+    //     isTrue: true,
+    //   },
+    //   {
+    //     idPost: 2,
+    //     date: new Date(),
+    //     user: this.user,
+    //     text: "Contenu de la 2eme anecdote",
+    //     comments: [],
+    //     reactions: [],
+    //     isTrue: true,
+    //   },
+    //   {
+    //     idPost: 3,
+    //     date: new Date(),
+    //     user: this.user,
+    //     text: "Contenu de la 3eme anecdote",
+    //     comments: [],
+    //     reactions: [],
+    //     isTrue: true,
+    //   },
+    //   {
+    //     idPost: 4,
+    //     date: new Date(),
+    //     user: this.user,
+    //     text: "Contenu de la 4eme anecdote",
+    //     comments: [],
+    //     reactions: [],
+    //     isTrue: true,
+    //   },
+    // ]
   }
 
   // Méthode pour ajouter un nouveau poste
@@ -114,32 +117,22 @@ export class HomeComponent implements OnInit {
   }
 
   // Méthode pour marquer une anecdote comme vraie
-  marquerVraie(anecdote: Post) {
-    this.afficherPopin("Marquer l'anecdote comme vraie", anecdote)
+  marquerVraie(postId: number) {
+    this.explicationVisible[postId] = !this.explicationVisible[postId]
   }
 
   // Méthode pour marquer une anecdote comme fausse
-  marquerFausse(anecdote: Post) {
-    this.afficherPopin("Marquer l'anecdote comme fausse", anecdote)
+  marquerFausse(postId: number) {
+    this.explicationVisible[postId] = !this.explicationVisible[postId]
   }
 
-  afficherPopin(text: string, anecdote: Post) {
-    const dialogRef = this.dialog.open(PopinComponent, {
-      width: "250px",
-      data: { text: text },
-    })
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        // Logique à exécuter si l'utilisateur confirme
-        console.log("L'utilisateur a confirmé.")
-      } else {
-        // Logique à exécuter si l'utilisateur annule
-        console.log("L'utilisateur a annulé.")
-      }
-    })
+  afficherExplication(anecdote: any) {
+    this.explicationVisible[anecdote.idPost] = true
   }
 
+  masquerExplication(anecdote: any) {
+    this.explicationVisible[anecdote.idPost] = false
+  }
   // Méthode pour détecter si l'utilisateur a atteint le bas de la page
   @HostListener("window:scroll", [])
   onWindowScroll() {

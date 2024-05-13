@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Abonnement")
 @NoArgsConstructor
-public class AbonnementDTO {
+public class Abonnement {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,15 +25,15 @@ public class AbonnementDTO {
 	// utilisateur qui est suivi
 	@ManyToOne
 	@JoinColumn(name = "id_user_checked", nullable = false)
-	private UserDTO userChecked;
+	private User userChecked;
 
 	// utilisateur qui suit
 	@ManyToOne
 	@JoinColumn(name = "id_user_follower", nullable = false)
-	private UserDTO userFollower;
+	private User userFollower;
 
 	// Constructeur avec deux utilisateurs (suivi et suiveur)
-	public AbonnementDTO(final UserDTO userChecked, final UserDTO userFollower) {
+	public Abonnement(final User userChecked, final User userFollower) {
 		this.userChecked = userChecked;
 		this.userFollower = userFollower;
 	}

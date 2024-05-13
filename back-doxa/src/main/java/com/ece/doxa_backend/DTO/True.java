@@ -16,23 +16,23 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "False")
-public class FalseDTO {
+@Table(name = "True")
+public class True {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_false")
-	private Long idFalse;
+	@Column(name = "id_true")
+	private Long idTrue;
 
 	// L'annecdote associé
 	@ManyToOne
 	@JoinColumn(name = "id_post", nullable = false)
-	private PostDTO post;
+	private Post post;
 
-	// L'utilisateur qui a cliqué sur FALSE
+	// L'utilisateur qui a cliqué sur TRUE
 	@ManyToOne
 	@JoinColumn(name = "id_user", nullable = false)
-	private UserDTO user;
+	private User user;
 
 	@Column(name = "date")
 	@Temporal(value = TemporalType.TIMESTAMP)

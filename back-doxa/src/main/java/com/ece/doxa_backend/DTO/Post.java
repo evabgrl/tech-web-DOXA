@@ -19,7 +19,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "Post")
-public class PostDTO {
+public class Post {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class PostDTO {
 	// utilisateur qui a créé le post
 	@ManyToOne
 	@JoinColumn(name = "id_user", nullable = false)
-	private UserDTO user;
+	private User user;
 
 	private boolean reaction;
 
@@ -50,7 +50,7 @@ public class PostDTO {
 
 	// liste des commentaires associés
 	@OneToMany
-	private List<CommentDTO> comments;
+	private List<Comment> comments;
 
 	@Column(name = "is_true", nullable = false, columnDefinition = "BOOLEAN")
 	private boolean isTrue;

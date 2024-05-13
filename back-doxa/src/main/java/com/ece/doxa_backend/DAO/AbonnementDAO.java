@@ -2,13 +2,15 @@ package com.ece.doxa_backend.DAO;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import com.ece.doxa_backend.DTO.AbonnementDTO;
+import com.ece.doxa_backend.models.Abonnement;
 
-public interface AbonnementDAO extends JpaRepository<AbonnementDTO, Long> {
+@Repository
+public interface AbonnementDAO extends JpaRepository<Abonnement, Long> {
 
 	@Query(value = "SELECT * FROM Abonnement a WHERE " + "a.userChecked.idUser = ?1 AND a.userFollower.idUser = ?2", nativeQuery = true)
-	AbonnementDTO findByUsers(Long idUserChecked, Long idUserFollower);
+	Abonnement findByUsers(Long idUserChecked, Long idUserFollower);
 
 	@Query(value = "SELECT COUNT(*) FROM Abonnement a WHERE " + "a.userChecked.idUser = ?", nativeQuery = true)
 	Integer findFollowersNumber(Long idUser);

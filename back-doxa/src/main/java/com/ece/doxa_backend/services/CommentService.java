@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.CommentDAO;
-import com.ece.doxa_backend.DTO.CommentDTO;
-import com.ece.doxa_backend.DTO.PostDTO;
+import com.ece.doxa_backend.models.Comment;
+import com.ece.doxa_backend.models.Post;
 
 @Service
 public class CommentService {
@@ -17,29 +17,29 @@ public class CommentService {
 	CommentDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<CommentDTO> toList() {
+	public List<Comment> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public CommentDTO save(final CommentDTO entity) {
+	public Comment save(final Comment entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final CommentDTO entity) {
+	public void delete(final Comment entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public CommentDTO findById(final Long id) {
-		final var postDTO = new PostDTO();
+	public Comment findById(final Long id) {
+		final var postDTO = new Post();
 		postDTO.setIdPost(id);
 		return repository.findById(postDTO).orElse(null);
 	}
 
 	@Transactional(readOnly = true)
-	public List<CommentDTO> toList(final PostDTO post) {
+	public List<Comment> toList(final Post post) {
 		return repository.findAllByPost(post);
 	}
 }

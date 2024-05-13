@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.PostDAO;
-import com.ece.doxa_backend.DTO.PostDTO;
+import com.ece.doxa_backend.models.Post;
 
 @Service
 public class PostService {
@@ -16,22 +16,22 @@ public class PostService {
 	PostDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<PostDTO> toList() {
+	public List<Post> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public PostDTO save(final PostDTO entity) {
+	public Post save(final Post entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final PostDTO entity) {
+	public void delete(final Post entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public PostDTO findById(final Long id) {
+	public Post findById(final Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
@@ -41,7 +41,7 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<PostDTO> findFollowingFeedByUserId(final Long idUser, final Integer from) {
+	public List<Post> findFollowingFeedByUserId(final Long idUser, final Integer from) {
 		return repository.findFollowingFeedByUser(idUser, from);
 	}
 
@@ -51,7 +51,7 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<PostDTO> findOldFollowingFeedByUserId(final Long idUser, final Integer from) {
+	public List<Post> findOldFollowingFeedByUserId(final Long idUser, final Integer from) {
 		return repository.findOldFollowingFeedByUser(idUser, from);
 	}
 
@@ -61,7 +61,7 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<PostDTO> findPostsByUserId(final Long idUser, final Integer from) {
+	public List<Post> findPostsByUserId(final Long idUser, final Integer from) {
 		return repository.findPostsByUser(idUser, from);
 	}
 
@@ -70,7 +70,7 @@ public class PostService {
 		return repository.findLastIdPostFromPostsByUser(idUser);
 	}
 
-	public List<PostDTO> getAllPosts() {
+	public List<Post> getAllPosts() {
 		return repository.findAll();
 	}
 

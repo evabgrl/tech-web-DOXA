@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.AbonnementDAO;
-import com.ece.doxa_backend.DTO.AbonnementDTO;
-import com.ece.doxa_backend.DTO.UserDTO;
+import com.ece.doxa_backend.models.Abonnement;
 
 @Service
 public class AbonnementService {
@@ -17,27 +16,27 @@ public class AbonnementService {
 	AbonnementDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<AbonnementDTO> toList() {
+	public List<Abonnement> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public AbonnementDTO save(final AbonnementDTO entity) {
+	public Abonnement save(final Abonnement entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final AbonnementDTO entity) {
+	public void delete(final Abonnement entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public AbonnementDTO findById(final Long id) {
+	public Abonnement findById(final Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
 	@Transactional(readOnly = true)
-	public AbonnementDTO findByUsers(final UserDTO userChecked, final UserDTO userFollower) {
+	public Abonnement findByUsers(final com.ece.doxa_backend.models.User userChecked, final com.ece.doxa_backend.models.User userFollower) {
 		return repository.findByUsers(userChecked.getId(), userFollower.getId());
 	}
 

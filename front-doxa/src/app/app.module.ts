@@ -13,10 +13,9 @@ import { MatButtonModule } from "@angular/material/button"
 import { HttpClientModule } from "@angular/common/http"
 import { MatAutocompleteModule } from "@angular/material/autocomplete"
 import { MessageComponent } from "messagerie/message"
-import { PopinComponent } from "popin/popin.component"
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, MessageComponent, PopinComponent],
+  declarations: [AppComponent, NavbarComponent, HomeComponent, MessageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

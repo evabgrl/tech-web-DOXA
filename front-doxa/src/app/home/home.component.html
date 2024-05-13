@@ -17,16 +17,19 @@
     <div class="buttons-container">
       <div class="buttons">
         <button class="image-button" (click)="toggleCommentaires(anecdote.idPost)">
-          <!-- {{ commentairesVisibles[anecdote.idPost] ? "Masquer Commentaires" : "Afficher Commentaires" }} -->
           <img src="../../assets/commentaire.png" />
         </button>
-        <button class="image-button" (click)="afficherPopin('vraie', anecdote)">
+        <button class="image-button" (click)="marquerVraie(anecdote.idPost)">
           <img src="../../assets/true.png" />
         </button>
-        <button class="image-button" (click)="afficherPopin('fausse', anecdote)">
+        <button class="image-button" (click)="marquerFausse(anecdote.idPost)">
           <img src="../../assets/false.png" />
         </button>
       </div>
+    </div>
+    <!-- Affichage de l'explication -->
+    <div *ngIf="explicationVisible[anecdote.idPost]" class="explication-container">
+      <p>Explication de l'anecdote...</p>
     </div>
     <div *ngIf="commentairesVisibles[anecdote.idPost]" class="comment-section">
       <p>Commentaires :</p>

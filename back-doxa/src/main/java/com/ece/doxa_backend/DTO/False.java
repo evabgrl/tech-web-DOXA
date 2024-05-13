@@ -16,28 +16,25 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Comment")
-public class CommentDTO {
+@Table(name = "False")
+public class False {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_comment")
-	private Long idComment;
+	@Column(name = "id_false")
+	private Long idFalse;
 
-	@Column(name = "text", nullable = false)
-	private String text;
+	// L'annecdote associé
+	@ManyToOne
+	@JoinColumn(name = "id_post", nullable = false)
+	private Post post;
 
-	// L'utilisateur qui a écrit le commentaire
+	// L'utilisateur qui a cliqué sur FALSE
 	@ManyToOne
 	@JoinColumn(name = "id_user", nullable = false)
-	private UserDTO user;
+	private User user;
 
-	// Le post auquel le commentaire est associé
-	@ManyToOne
-	@JoinColumn(name = "id_post")
-	private PostDTO post;
-
-	@Column(name = "date", nullable = false)
+	@Column(name = "date")
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date date;
 

@@ -16,24 +16,26 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Message")
-public class MessageDTO {
+@Table(name = "Comment")
+public class Comment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_message")
-	private Long idMessage;
+	@Column(name = "id_comment")
+	private Long idComment;
 
 	@Column(name = "text", nullable = false)
 	private String text;
 
+	// L'utilisateur qui a écrit le commentaire
 	@ManyToOne
-	@JoinColumn(name = "user_transmitter_id", nullable = false)
-	private UserDTO userTransmitter;
+	@JoinColumn(name = "id_user", nullable = false)
+	private User user;
 
+	// Le post auquel le commentaire est associé
 	@ManyToOne
-	@JoinColumn(name = "user_receiver_id", nullable = false)
-	private UserDTO userReceiver;
+	@JoinColumn(name = "id_post")
+	private Post post;
 
 	@Column(name = "date", nullable = false)
 	@Temporal(value = TemporalType.TIMESTAMP)

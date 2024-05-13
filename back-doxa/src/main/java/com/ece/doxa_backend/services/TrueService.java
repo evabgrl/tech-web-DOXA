@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.TrueDAO;
-import com.ece.doxa_backend.DTO.TrueDTO;
+import com.ece.doxa_backend.models.True;
 
 @Service
 public class TrueService {
@@ -16,27 +16,27 @@ public class TrueService {
 	TrueDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<TrueDTO> toList() {
+	public List<True> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public TrueDTO save(final TrueDTO entity) {
+	public True save(final True entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final TrueDTO entity) {
+	public void delete(final True entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public TrueDTO findById(final Long id) {
+	public True findById(final Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
 	@Transactional(readOnly = true)
-	public TrueDTO findByPostAndUser(final Long idPost, final Long idUser) {
+	public True findByPostAndUser(final Long idPost, final Long idUser) {
 		return repository.findByPostAndUser(idPost, idUser);
 	}
 }

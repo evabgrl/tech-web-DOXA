@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "User")
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,27 +45,27 @@ public class UserDTO {
 	private Boolean isChecked;
 
 	@OneToMany
-	private List<CommentDTO> comments;
+	private List<Comment> comments;
 
 	@OneToMany
-	private List<AbonnementDTO> following;
+	private List<Abonnement> following;
 
 	@OneToMany
-	private List<AbonnementDTO> followers;
+	private List<Abonnement> followers;
 
 	@OneToMany
-	private List<TrueDTO> likes;
+	private List<True> likes;
 
 	@OneToMany(mappedBy = "userTransmitter")
-	private List<MessageDTO> messagesTransmitted;
+	private List<Message> messagesTransmitted;
 
 	@OneToMany(mappedBy = "userReceiver")
-	private List<MessageDTO> messagesReceived;
+	private List<Message> messagesReceived;
 
 	@OneToMany
-	private List<PostDTO> posts;
+	private List<Post> posts;
 
-	public UserDTO(final Long idUser, final String username, final String photo, final String description, final Date creationDate,
+	public User(final Long idUser, final String username, final String photo, final String description, final Date creationDate,
 			final Boolean isChecked) {
 		id = idUser;
 		this.username = username;

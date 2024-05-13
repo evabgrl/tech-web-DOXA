@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.UserDAO;
-import com.ece.doxa_backend.DTO.UserDTO;
+import com.ece.doxa_backend.models.User;
 
 @Service("userDetailsService")
 public class UserService {
@@ -18,32 +18,32 @@ public class UserService {
 	UserDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<UserDTO> toList() {
+	public List<User> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public UserDTO save(final UserDTO entity) {
+	public User save(final User entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final UserDTO entity) {
+	public void delete(final User entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public UserDTO findById(final Long id) {
+	public User findById(final Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
 	@Transactional(readOnly = true)
-	public UserDTO findByUsername(final String username) {
+	public User findByUsername(final String username) {
 		return repository.findByUsername(username);
 	}
 
 	@Transactional
-	public UserDTO checkIfUserIsPersisted(final UserDTO userFound, final UserDTO userFromToken) {
+	public User checkIfUserIsPersisted(final User userFound, final User userFromToken) {
 		if (!userFound.getUsername().equals(userFromToken.getUsername())) {
 			userFound.setUsername(userFromToken.getUsername());
 			save(userFound);
@@ -52,32 +52,32 @@ public class UserService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<UserDTO> filter(final String username) {
+	public List<User> filter(final String username) {
 		return repository.filter(username, username);
 	}
 
 	@Transactional(readOnly = true)
-	public List<UserDTO> filterWithoutLimit(final String username) {
+	public List<User> filterWithoutLimit(final String username) {
 		return repository.filterWithoutLimit(username, username);
 	}
 
 	@Transactional(readOnly = true)
-	public List<UserDTO> getFollowers(final Long idUser) {
+	public List<User> getFollowers(final Long idUser) {
 		return repository.findFollowersByUser(idUser);
 	}
 
 	@Transactional(readOnly = true)
-	public List<UserDTO> getFollowing(final Long idUser) {
+	public List<User> getFollowing(final Long idUser) {
 		return repository.findFollowingByUser(idUser);
 	}
 
 	@Transactional(readOnly = true)
-	public Page<UserDTO> getByUsername(final String username, final Pageable pageable) {
+	public Page<User> getByUsername(final String username, final Pageable pageable) {
 		return repository.findByUsernameContaining(username, pageable);
 	}
 
 	@Transactional(readOnly = true)
-	public List<UserDTO> getUsersWhoseDeletionDateIsNotNull() {
+	public List<User> getUsersWhoseDeletionDateIsNotNull() {
 		return repository.findByDeletionDateIsNotNull();
 	}
 }

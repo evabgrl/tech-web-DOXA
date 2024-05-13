@@ -1,4 +1,4 @@
-import { Post } from "./post"
+import { Post } from "./Post"
 import { Comment } from "./comment"
 import { Abonnement } from "./abonnement"
 import { True } from "./true"

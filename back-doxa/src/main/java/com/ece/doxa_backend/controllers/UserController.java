@@ -9,19 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ece.doxa_backend.DTO.UserDTO;
+import com.ece.doxa_backend.models.User;
 import com.ece.doxa_backend.services.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("api/User/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
 	@Autowired
@@ -31,14 +33,14 @@ public class UserController {
 	MessageSource messageSource;
 
 	@GetMapping("/list")
-	public ResponseEntity<List<UserDTO>> getAllUsers() {
+	public ResponseEntity<List<User>> getAllUsers() {
 		final var users = userService.toList();
 		return new ResponseEntity<>(users, HttpStatus.OK);
 	}
 
 	@Operation(description = "Receives a user in the request body and, if it exists in the DB, checks if it is updated and returns it, if it does not exist, creates it")
 	@PostMapping("/login")
-	public ResponseEntity<?> login(@RequestBody final UserDTO user, final Locale locale) {
+	public ResponseEntity<?> login(@RequestBody final User user, final Locale locale) {
 		var userFound = userService.findByUsername(user.getUsername());
 		final Map<String, Object> response = new HashMap<>();
 		if (userFound != null) {
