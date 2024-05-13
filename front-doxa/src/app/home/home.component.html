@@ -11,27 +11,27 @@
 </div>
 
 <!-- Encadré pour afficher chaque anecdote -->
-<div *ngFor="let anecdote of anecdotes">
-  <div class="anecdote-container" [ngClass]="{ expanded: commentairesVisibles[anecdote.idPost] }">
-    <div class="anecdote-text">{{ anecdote.text }}</div>
+<div *ngFor="let post of posts">
+  <div class="anecdote-container" [ngClass]="{ expanded: commentairesVisibles[post.idPost] }">
+    <div class="anecdote-text">{{ post.text }}</div>
     <div class="buttons-container">
       <div class="buttons">
-        <button class="image-button" (click)="toggleCommentaires(anecdote.idPost)">
+        <button class="image-button" (click)="toggleCommentaires(post.idPost)">
           <img src="../../assets/commentaire.png" />
         </button>
-        <button class="image-button" (click)="marquerVraie(anecdote.idPost)">
+        <button class="image-button" (click)="marquerVraie(post.idPost)">
           <img src="../../assets/true.png" />
         </button>
-        <button class="image-button" (click)="marquerFausse(anecdote.idPost)">
+        <button class="image-button" (click)="marquerFausse(post.idPost)">
           <img src="../../assets/false.png" />
         </button>
       </div>
     </div>
     <!-- Affichage de l'explication -->
-    <div *ngIf="explicationVisible[anecdote.idPost]" class="explication-container">
+    <div *ngIf="explicationVisible[post.idPost]" class="explication-container">
       <p>Explication de l'anecdote...</p>
     </div>
-    <div *ngIf="commentairesVisibles[anecdote.idPost]" class="comment-section">
+    <div *ngIf="commentairesVisibles[post.idPost]" class="comment-section">
       <p>Commentaires :</p>
       <ul>
         <!-- <li *ngFor="let commentaire of anecdote.comments">{{ commentaire.text }}</li> -->

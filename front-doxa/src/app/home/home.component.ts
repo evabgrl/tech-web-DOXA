@@ -12,7 +12,7 @@ import { Post } from "models/Post"
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  anecdotes: Post[] = []
+  posts: Post[] = []
   nouveauPoste: string = ""
   user!: User[]
   nouveauCommentaire: string = ""
@@ -25,9 +25,8 @@ export class HomeComponent implements OnInit {
   constructor(private postService: PostService, private commentService: CommentService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.postService.getAllPosts().subscribe((posts: Post[]) => {
-      this.anecdotes = posts
-    })
+    this.getPosts()
+
     // this.anecdotes = [
     //   {
     //     idPost: 1,
@@ -67,20 +66,41 @@ export class HomeComponent implements OnInit {
     //   },
     // ]
   }
+  getPosts(): void {
+    this.postService.getAllPosts().subscribe((posts) => {
+      console.log(posts)
+      this.posts = posts
+    })
+  }
 
   // Méthode pour ajouter un nouveau poste
   ajouterPoste() {
     if (this.nouveauPoste.trim() !== "") {
+      const currentUser: User = {
+        idUser: 1,
+        username: "John Doe",
+        photo: "assets/téléchargement(1).jpg",
+        description: "Description de l'utilisateur",
+        creationDate: new Date(),
+        isChecked: false,
+        notifications: [],
+        comments: [],
+        following: [],
+        followers: [],
+        likes: [],
+        messagesTransmitted: [],
+        messagesReceived: [],
+        posts: [],
+      }
       const nouvelleAnecdote: Post = {
-        idPost: this.anecdotes.length + 1,
+        idPost: this.posts.length + 1,
         date: new Date(),
-        user: this.user,
+        user: currentUser,
         text: this.nouveauPoste,
         comments: [],
-        reactions: [],
         isTrue: true,
       }
-      this.anecdotes.unshift(nouvelleAnecdote)
+      this.posts.unshift(nouvelleAnecdote)
       this.commentSectionStatus[nouvelleAnecdote.idPost] = false
       this.nouveauPoste = ""
     }
