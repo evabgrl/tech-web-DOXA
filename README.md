@@ -1,171 +1,64 @@
-# Set up cours Java Spring Boot
+# Projet DOXA
 
-## I. Installation
-**2 méthodes d'installation sont possibles : par téléchargements Internet ou par Clé USB**
-### Windows
-#### Par téléchargements Internet :
-- Docker : https://docs.docker.com/desktop/install/windows-install/
-- Intellij : https://www.jetbrains.com/fr-fr/idea/download/#section=windows
+## Description
+Bienvenue sur DOXA, l'application qui a survécu à plus de réunions et de tasses de café qu'il n'est humainement acceptable. Ici, nous vous offrons une plateforme sociale sans admin pour prouver que l'anarchie peut fonctionner (spoiler : ça dépend des jours). DOXA, le coin numérique où le quotidien se transforme en légende. Notre réseau social est dédié à la publication d'anecdotes par les internautes. De l'insolite au merveilleux, chaque histoire est un secret à découvrir – pas de spoilers pour les meilleures publications, vous devrez les découvrir par vous-même !
 
-### Mac
-Pour les puces M1 ou M2 choisis *Apple Chip* & *(Apple Silicone)*
-Pour les puces Intel choisis *Intel Chip* & *(Intel)*
+## Technologies utilisées
+- *Frontend* : Angular JS, parce qu'on aime les challenges et un peu de souffrance.
+- *Backend* : Java avec Spring Boot, pour ceux qui apprécient les bonnes vieilles traditions.
+- *Base de données* : PostgreSQL, le seul et unique, robuste et fidèle, sauf quand il décide de l'être moins.
+- *Conteneurisation* : Docker, pour empêcher notre app de saccager votre précieux système.
 
-#### Par téléchargements Internet :
-- Docker  : https://docs.docker.com/desktop/install/mac-install/
-- Intellij : https://www.jetbrains.com/fr-fr/idea/download/#section=mac
+## Prérequis
+- *Docker* : Parce qu'essayer de gérer les dépendances manuellement, c'est tellement 2010. Installez-le à partir de [Docker Hub](https://hub.docker.com/).
+- *Node.js* : Nécessaire pour faire tourner le hamster dans la roue qui génère le code Angular. Téléchargez-le depuis [Node.js](https://nodejs.org/).
+- *JDK Java* : Sans lui, notre backend serait juste une coquille vide. Téléchargez la dernière version d'[Oracle](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), ou une distribution Open Source comme [OpenJDK](https://jdk.java.net/).
+- *Eclipse* : Parce que parfois, nous aimons voir le monde brûler. Mais sérieusement, pour une bonne intégration avec Spring Boot, c'est top.
 
-### Linux
-#### Commandes pour les installations :
-- Docker : <br>
-    - `curl -fsSL https://get.docker.com -o get-docker.sh` <br>
-    - `sudo sh get-docker.sh`
-    - `sudo usermod -aG docker $USER`
-- Intellij : <br>
-    - `sudo snap install intellij-idea-ultimate --classic`
+## Configuration (le moment de vérité)
+   *Cloner le dépôt* :
+   Ouvrez un terminal et exécutez:
+   bash
+   git clone https://github.com/voilaVotreRepo.git
 
-## II. Set up Intellij
-### 1. Création compte
-Intellij est un IDE super complet et est devenu un indispensable pour le développement de projet Java. <br>
+Remplacez https://github.com/voilaVotreRepo.git par votre URL, évidemment.
 
-Avec ses recherches de fichiers optimisées, ses auto-complétions et ses raccourcis à gogo, Intellij améliore grandement l'expérience de développement.
-Le Graal étant que Maven y est de base intégré et que tu puisses
-télécharger n'importe quelle version de Java directement depuis ton IDE (non ce n'est pas un rêve !)<br>
+    Ouvrez Eclipse :
+        Importez le projet en utilisant File > Import > Existing Projects into Workspace.
+        Faites un clic droit sur le projet, choisissez Run As > Spring Boot App. Eclipse s'occupera de vous rappeler pourquoi vous l'aimez (ou pas).
 
-Cerise sur le gateau grâce à ton compte étudiant, tu peux gratuitement obtenir une licence de la version payante (ultimate).
-Elle est essentielle au bon déroulement du TP car, avec cette dernière, tu pourras notamment visualiser ta base de données et interagir avec elle directement depuis IntelliJ. <br>
-Pour te créer un compte, suis ce lien et effectue les actions détaillées ci-dessous : https://www.jetbrains.com/fr-fr/idea/
+    Lancez Docker Compose :
+        Assurez-vous que Docker tourne aussi rond que possible.
+        Exécutez dans le terminal du projet :
 
-<p align="center">
-<img src="img-readme/main-readme/img.png" width="500"/>
-<img src="img-readme/main-readme/img2.png" width="500"/>
-</p>
+        bash
 
-### 2. Licence Intellij
-Pour récupérer une licence gratuite utilise ce lien : https://jetbrains.com/shop/eform/students
+        docker-compose up --build
 
-### 3. Lancer Intellij
-Une fois ta licence récupérée, lance l'IDE et relie ton compte
-<p align="center">
-<img src="img-readme/main-readme/img3.png" width="600"/>
-<img src="img-readme/main-readme/img4.png" width="600"/>
-</p>
+        Cette étape peut prendre un peu de temps. C'est le moment idéal pour une pause café.
 
-### 4. Clonage du projet
-Pour récupérer le repository GitLab du TP, lance `git clone https://gitlab.com/llenet/java-angular.git`
+    Accédez à l'application :
+        Tapez http://localhost:4200/ dans votre navigateur après avoir prié pour aucun bug.
 
-Tu y trouveras toutes les ressources nécessaires à la suite du TP.
+## Comment utiliser DOXA sans perdre vos amis
 
-Dans Intellij, effectue ensuite les actions suivantes :
-<p align="center">
-<img src="img-readme/main-readme/img5.png" width="400"/>
-<img src="img-readme/main-readme/img6.png" width="400"/>
-</p>
+    Soyez gentil, c'est un réseau social après tout.
+    Ne spammez pas de GIFs de chats, même si c'est tentant.
+    Résistez à l'envie de corriger les fautes d'orthographe des autres, ça ne finit jamais bien.
 
-### 5. Téléchargement de Java 17
-Depuis Intellij, tu peux directement télécharger Java 17 : <br>
-<p align="center">
-<img src="img-readme/main-readme/img7.png"/>
-<img src="img-readme/main-readme/img8.png" width="600"/>
-<img src="img-readme/main-readme/img9.png" width="600"/>
-<img src="img-readme/main-readme/img10.png" width="600"/>
-</p>
+## Contribution
 
-### 6. Ouvrir un terminal dans Intellij
-<p align="center">
-<img src="img-readme/main-readme/img11.png" width="600"/>
-</p>
-<br>
-Tu peux également changer de Shell (Surtout utile pour les Windows)<br>
-<br>
-<p align="center">
-<img src="img-readme/main-readme/img12.png" width="500"/>
-</p>
-<br>
+Si vous souhaitez contribuer, n'oubliez pas de forker le dépôt. Créez votre propre branche de fonctionnalités, apportez vos améliorations (nous savons que vous en mourrez d'envie), et envoyez-nous une pull request. On adore les surprises !
+Équipe de développement
 
-Sélectionne *Git Bash*
-<p align="center">
-<img src="img-readme/main-readme/img13.png" width="500"/>
-</p>
+    Eva Abgrall (eva.abgrall@edu.ece.fr) - La maestro du code qui ne dort jamais.
+    ZENAT Kaïs (kais.zenat@edu.ece.fr) - Le bug hunter en chef.
+    ROMERO Enzo (enzo.romero@edu.ece.fr) - L'artiste qui pense que CSS est une forme d'art moderne.
 
-## III. Set up
-de la BDD via Docker
-### 1. Docker
-Lance le Docker Desktop en cliquant sur l'icône, tu dois obtenir l'écran suivant :
-<p align="center">
-<img src="img-readme/main-readme/img14.png" width="800"/>
-</p>
-Ferme et ré-ouvre ton application IntelliJ pour que les changements effectués par l'installation de Docker soit pris en compte.<br>
-Pour s'assurer que ton install Docker a bien fonctionné, lance la commande suivante dans ton terminal :  <br>
-`docker run hello-world` <br>
-Tu dois obtenir ce résultat : <br>
-<br>
-<p align="center">
-<img src="img-readme/main-readme/img15.png" width="600"/>
-</p>
+## Licence
 
-### 2. Afficher la BDD dans Intellij
-Effectue les étapes suivantes :
-<p align="center">
-<img src="img-readme/main-readme/img16.png" width="700"/>
-<img src="img-readme/main-readme/img17.png" width="700"/>
-</p>
+Tous droits réservés. Faites-en bon usage, nous vous surveillons !
 
-Installe les drivers si besoin :
-<p align="center">
-<img src="img-readme/main-readme/img18.png" width="500"/>
-</p>
+## Contact
 
-Saisie les infos (1-3), puis test la connexion à la bdd (4)
-<p align="center">
-<img src="img-readme/main-readme/img19.png" width="500"/>
-<img src="img-readme/main-readme/img20.png"/>
-</p><br> 
-
-Si c'est valide, clique sur *OK* (5)
-
-### 3. Initialisation de la BDD
-C'est cool d'avoir une BDD qui fonctionne mais c'est encore plus cool quand on peut lui insérer des données en 2 clics :
-<p align="center">
-<img src="img-readme/main-readme/img21.png" width="500"/>
-</p>
-Clic droit + run : 
-<p align="center">
-<img src="img-readme/main-readme/img22.png" width="400"/>
-<img src="img-readme/main-readme/img23.png" width="500"/>
-</p>
-
-Tadaaaam (j'avoue un peu plus que 2 clics)
-<p align="center">
-<img src="img-readme/main-readme/img24.png" width="500"/>
-</p>
-
-## IV. Run du projet (c'est bientôt fini promis !)
-**Deux** façons de faire :
-<p align="center">
-<img src="img-readme/main-readme/img25.png" width="600"/>
-</p>
-
-**OU**
-<p align="center">
-<img src="img-readme/main-readme/img26.png" width="600"/>
-</p>
-
-Ça ouvre :
-<p align="center">
-<img src="img-readme/main-readme/img27.png" width="600"/>
-</p>
-Sélectionne le Java 17 préalablement téléchargé et ajoute l'option `-Xms256m -Xmx256m` (c'est pour éviter que Intellij mange toute ta RAM)<br>
-<br>
-<p align="center">
-<img src="img-readme/main-readme/img28.png" width="600"/>
-<img src="img-readme/main-readme/img29.png" />
-<img src="img-readme/main-readme/img30.png" width="500"/>
-</p>
-Enfin :<br>
-<br>
-<p align="center"><img src="img-readme/main-readme/img31.png" width="800"/></p>
-
-Alors ça marche ?
-<p align="center"><img src="img-readme/main-readme/img32.png" width="900"/></p>
-
+Si vous avez des questions, des suggestions, ou juste envie de discuter, n'hésitez pas à contacter notre équipe. Sauf entre 13h et 14h, c'est sacré, c'est l'heure du déjeuner.
