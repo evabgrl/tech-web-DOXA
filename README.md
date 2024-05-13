@@ -14,14 +14,22 @@ Bienvenue sur DOXA, l'application qui a survécu à plus de réunions et de tass
 - *Node.js* : Nécessaire pour faire tourner le hamster dans la roue qui génère le code Angular. Téléchargez-le depuis [Node.js](https://nodejs.org/).
 - *JDK Java* : Sans lui, notre backend serait juste une coquille vide. Téléchargez la dernière version d'[Oracle](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), ou une distribution Open Source comme [OpenJDK](https://jdk.java.net/).
 - *Eclipse* : Parce que parfois, nous aimons voir le monde brûler. Mais sérieusement, pour une bonne intégration avec Spring Boot, c'est top.
+- *PostgreSQL*: Si vous ne souhaitez pas utiliser PostgreSQL via Docker, installez-le localement pour gérer les bases de données. Les instructions d'installation sont disponibles sur [le site officiel de PostgreSQL](https://www.postgresql.org/download/).
 
 ## Configuration (le moment de vérité)
    *Cloner le dépôt* :
    Ouvrez un terminal et exécutez:
    bash
-   git clone https://github.com/voilaVotreRepo.git
+   git clone 
 
-Remplacez https://github.com/voilaVotreRepo.git par votre URL, évidemment.
+
+    Naviguez dans le répertoire du projet cloné.
+    Si nécessaire, configurez les variables d'environnement requises en créant un fichier .env à la racine du projet. Exemple de contenu pour .env :
+		DB_HOST=localhost
+		DB_PORT=5432
+		DB_USER=postgres
+		DB_PASSWORD=root
+		DB_NAME=doxa_db
 
     Ouvrez Eclipse :
         Importez le projet en utilisant File > Import > Existing Projects into Workspace.
