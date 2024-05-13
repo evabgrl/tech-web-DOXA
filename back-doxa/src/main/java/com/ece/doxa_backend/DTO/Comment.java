@@ -2,43 +2,50 @@ package com.ece.doxa_backend.DTO;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import lombok.Data;
-
-@Data
-@Entity
-@Table(name = "Comment")
 public class Comment {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_comment")
 	private Long idComment;
-
-	@Column(name = "text", nullable = false)
 	private String text;
-
-	// L'utilisateur qui a écrit le commentaire
-	@ManyToOne
-	@JoinColumn(name = "id_user", nullable = false)
 	private User user;
-
-	// Le post auquel le commentaire est associé
-	@ManyToOne
-	@JoinColumn(name = "id_post")
 	private Post post;
-
-	@Column(name = "date", nullable = false)
-	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date date;
 
+	public Long getIdComment() {
+		return idComment;
+	}
+
+	public void setIdComment(final Long idComment) {
+		this.idComment = idComment;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(final String text) {
+		this.text = text;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(final User user) {
+		this.user = user;
+	}
+
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(final Post post) {
+		this.post = post;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(final Date date) {
+		this.date = date;
+	}
 }

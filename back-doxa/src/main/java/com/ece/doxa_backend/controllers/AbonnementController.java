@@ -1,5 +1,6 @@
 package com.ece.doxa_backend.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ece.doxa_backend.models.Abonnement;
-import com.ece.doxa_backend.models.User;
+import com.ece.doxa_backend.DTO.Abonnement;
+import com.ece.doxa_backend.DTO.User;
+import com.ece.doxa_backend.models.AbonnementEntity;
 import com.ece.doxa_backend.services.AbonnementService;
 import com.ece.doxa_backend.services.UserService;
 
@@ -25,12 +27,8 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @CrossOrigin(origins = "http://localhost:4200")
 public class AbonnementController {
 
-	private final AbonnementService abonnementService;
-
 	@Autowired
-	public AbonnementController(final AbonnementService abonnementService) {
-		this.abonnementService = abonnementService;
-	}
+	private AbonnementService abonnementService;
 
 	@Autowired
 	private UserService userService;
@@ -38,27 +36,41 @@ public class AbonnementController {
 	@Autowired
 	MessageSource messageSource;
 
+	private Abonnement mapToDto(final AbonnementEntity abonnementEntity) {
+		final var abonnementDto = new Abonnement();
+		abonnementDto.setIdFollowership(abonnementEntity.getIdFollowership());
+		// Map other attributes...
+		return abonnementDto;
+	}
+
 	@GetMapping("/{id}")
 	public Abonnement getAbonnementById(@PathVariable final Long id) {
-		return abonnementService.findById(id);
+		final var abonnementEntity = abonnementService.findById(id);
+		return mapToDto(abonnementEntity);
 	}
 
 	@GetMapping("/users/{userCheckedId}/{userFollowerId}")
 	public Abonnement getAbonnementByUsers(@PathVariable final Long userCheckedId, @PathVariable final Long userFollowerId) {
 		final var userChecked = new User();
 		final var userFollower = new User();
-		return abonnementService.findByUsers(userChecked, userFollower);
+		final var abonnementEntity = abonnementService.findByUsers(userChecked, userFollower);
+		return mapToDto(abonnementEntity);
 	}
 
-	// créer l'abonnement
+	// Créer l'abonnement
 	@GetMapping("/")
 	public List<Abonnement> getAllAbonnements() {
-		return abonnementService.toList();
+		final var abonnementEntities = abonnementService.toList();
+		final List<Abonnement> abonnementsDto = new ArrayList<>();
+		for (final AbonnementEntity abonnementEntity : abonnementEntities) {
+			abonnementsDto.add(mapToDto(abonnementEntity));
+		}
+		return abonnementsDto;
 	}
 
 	@PostMapping("/")
-	public Abonnement createAbonnement(@RequestBody final Abonnement abonnement) {
-		return abonnementService.save(abonnement);
+	public AbonnementEntity createAbonnement(@RequestBody final AbonnementEntity abonnementEntity) {
+		return abonnementService.save(abonnementEntity);
 	}
 
 	// supprimer l'abonnement

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.FalseDAO;
-import com.ece.doxa_backend.models.False;
+import com.ece.doxa_backend.models.FalseEntity;
 
 @Service
 public class FalseService {
@@ -16,27 +16,27 @@ public class FalseService {
 	FalseDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<False> toList() {
+	public List<FalseEntity> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public False save(final False entity) {
+	public FalseEntity save(final FalseEntity entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final False entity) {
+	public void delete(final FalseEntity entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public False findById(final Long id) {
+	public FalseEntity findById(final Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
 	@Transactional(readOnly = true)
-	public False findByPostAndUser(final Long idPost, final Long idUser) {
+	public FalseEntity findByPostAndUser(final Long idPost, final Long idUser) {
 		return repository.findByPostAndUser(idPost, idUser);
 	}
 }

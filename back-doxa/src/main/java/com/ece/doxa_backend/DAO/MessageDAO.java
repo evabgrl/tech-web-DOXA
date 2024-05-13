@@ -7,12 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.ece.doxa_backend.models.Message;
+import com.ece.doxa_backend.models.MessageEntity;
 
 @Repository
-public interface MessageDAO extends JpaRepository<Message, Long> {
+public interface MessageDAO extends JpaRepository<MessageEntity, Long> {
 
-	List<Message> findByUserTransmitterIdAndUserReceiverId(Long userTransmitterId, Long userReceiverId);
+	List<MessageEntity> findByUserTransmitterIdAndUserReceiverId(Long userTransmitterId, Long userReceiverId);
 
 	@Query(value = """
 			SELECT MIN(id_message) FROM Message\s\

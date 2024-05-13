@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.ece.doxa_backend.models.Post;
+import com.ece.doxa_backend.models.PostEntity;
 
 @Repository
-public interface PostDAO extends JpaRepository<Post, Long> {
+public interface PostDAO extends JpaRepository<PostEntity, Long> {
 
 	@Query(value = """
 			SELECT p.* FROM Post p\s\
@@ -17,7 +17,7 @@ public interface PostDAO extends JpaRepository<Post, Long> {
 			WHERE f.id_user_follower = ?1\s\
 			AND DATE(p.date) = CURDATE()\s\
 			ORDER BY p.date DESC, p.id_post DESC LIMIT ?2,10""", nativeQuery = true)
-	List<Post> findFollowingFeedByUser(Long idUser, Integer from);
+	List<PostEntity> findFollowingFeedByUser(Long idUser, Integer from);
 
 	@Query(value = """
 			SELECT MIN(p.id_post) FROM Post p\s\
@@ -32,7 +32,7 @@ public interface PostDAO extends JpaRepository<Post, Long> {
 			WHERE f.id_user_follower = ?1\s\
 			AND DATE(p.date) != CURDATE()\s\
 			ORDER BY p.date DESC, p.id_post DESC LIMIT ?2,10""", nativeQuery = true)
-	List<Post> findOldFollowingFeedByUser(Long idUser, Integer from);
+	List<PostEntity> findOldFollowingFeedByUser(Long idUser, Integer from);
 
 	@Query(value = """
 			SELECT MIN(p.id_post) FROM Post p\s\
@@ -42,7 +42,7 @@ public interface PostDAO extends JpaRepository<Post, Long> {
 	Long findLastIdPostFromOldFollowingFeedByUser(Long idUser);
 
 	@Query(value = "SELECT p.* FROM Post p WHERE p.id_user = ?1 ORDER BY p.date DESC, p.id_post DESC LIMIT ?2,10", nativeQuery = true)
-	List<Post> findPostsByUser(Long idUser, Integer from);
+	List<PostEntity> findPostsByUser(Long idUser, Integer from);
 
 	@Query(value = "SELECT MIN(p.id_post) FROM Post p WHERE p.id_user = ?", nativeQuery = true)
 	Long findLastIdPostFromPostsByUser(Long idUser);
@@ -51,6 +51,6 @@ public interface PostDAO extends JpaRepository<Post, Long> {
 	Integer countPostsByUser(Long idUser);
 
 	// Méthode pour rechercher un post par son texte
-	List<Post> findByTextContaining(String searchText);
+	List<PostEntity> findByTextContaining(String searchText);
 
 }

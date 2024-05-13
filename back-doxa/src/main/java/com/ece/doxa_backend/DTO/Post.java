@@ -3,44 +3,48 @@ package com.ece.doxa_backend.DTO;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import lombok.Data;
-
-@Data
-@Entity
-@Table(name = "Post")
 public class Post {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_post")
 	private Long idPost;
-
-	@Column(name = "text")
 	private String text;
-
-	@Column(name = "date", nullable = false)
-	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date date;
-
-	// utilisateur qui a créé le post
-	@ManyToOne
-	@JoinColumn(name = "id_user", nullable = false)
 	private User user;
-
 	private boolean reaction;
+	private List<Comment> comments;
+	private boolean isTrue;
 
-	public boolean getReaction() {
+	public Long getIdPost() {
+		return idPost;
+	}
+
+	public void setIdPost(final Long idPost) {
+		this.idPost = idPost;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(final String text) {
+		this.text = text;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(final Date date) {
+		this.date = date;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(final User user) {
+		this.user = user;
+	}
+
+	public boolean isReaction() {
 		return reaction;
 	}
 
@@ -48,11 +52,19 @@ public class Post {
 		this.reaction = reaction;
 	}
 
-	// liste des commentaires associés
-	@OneToMany
-	private List<Comment> comments;
+	public List<Comment> getComments() {
+		return comments;
+	}
 
-	@Column(name = "is_true", nullable = false, columnDefinition = "BOOLEAN")
-	private boolean isTrue;
+	public void setComments(final List<Comment> comments) {
+		this.comments = comments;
+	}
 
+	public boolean isTrue() {
+		return isTrue;
+	}
+
+	public void setTrue(final boolean aTrue) {
+		isTrue = aTrue;
+	}
 }

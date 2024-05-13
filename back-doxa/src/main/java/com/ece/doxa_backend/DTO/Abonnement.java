@@ -1,40 +1,31 @@
 package com.ece.doxa_backend.DTO;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Entity
-@Table(name = "Abonnement")
-@NoArgsConstructor
 public class Abonnement {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_followership")
 	private Long idFollowership;
-
-	// utilisateur qui est suivi
-	@ManyToOne
-	@JoinColumn(name = "id_user_checked", nullable = false)
 	private User userChecked;
-
-	// utilisateur qui suit
-	@ManyToOne
-	@JoinColumn(name = "id_user_follower", nullable = false)
 	private User userFollower;
 
-	// Constructeur avec deux utilisateurs (suivi et suiveur)
-	public Abonnement(final User userChecked, final User userFollower) {
+	public Long getIdFollowership() {
+		return idFollowership;
+	}
+
+	public void setIdFollowership(final Long idFollowership) {
+		this.idFollowership = idFollowership;
+	}
+
+	public User getUserChecked() {
+		return userChecked;
+	}
+
+	public void setUserChecked(final User userChecked) {
 		this.userChecked = userChecked;
+	}
+
+	public User getUserFollower() {
+		return userFollower;
+	}
+
+	public void setUserFollower(final User userFollower) {
 		this.userFollower = userFollower;
 	}
 }

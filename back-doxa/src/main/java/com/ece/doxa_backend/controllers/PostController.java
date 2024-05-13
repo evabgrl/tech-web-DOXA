@@ -1,5 +1,6 @@
 package com.ece.doxa_backend.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ece.doxa_backend.models.Post;
+import com.ece.doxa_backend.DTO.Post;
+import com.ece.doxa_backend.models.PostEntity;
 import com.ece.doxa_backend.services.PostService;
 
 @RestController
@@ -25,52 +27,42 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 
-	// Endpoint pour récupérer tous les posts
-	@GetMapping
-	public ResponseEntity<List<Post>> getAllPosts() {
-		final var posts = postService.getAllPosts();
-		return new ResponseEntity<>(posts, HttpStatus.OK);
+	private Post mapToDto(final PostEntity postEntity) {
+
+		// Map attributes...
+		return new Post();
 	}
 
-	// Endpoint pour récupérer un post par son ID
+	@GetMapping
+	public ResponseEntity<List<Post>> getAllPosts() {
+		final var postEntities = postService.getAllPosts();
+		final List<Post> postDtos = new ArrayList<>();
+		for (final PostEntity postEntity : postEntities) {
+			postDtos.add(mapToDto(postEntity));
+		}
+		return new ResponseEntity<>(postDtos, HttpStatus.OK);
+	}
+
 	@GetMapping("/{id}")
-	public ResponseEntity<Post> getPostById(@PathVariable("id") final Long id) {
-		final var post = postService.findById(id);
-		if (post != null) {
-			return new ResponseEntity<>(post, HttpStatus.OK);
+	public ResponseEntity<Post> getPostById(@PathVariable final Long id) {
+		final var postEntity = postService.findById(id);
+		if (postEntity != null) {
+			return new ResponseEntity<>(mapToDto(postEntity), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	// Endpoint pour enregistrer un nouveau post
 	@PostMapping
-	public ResponseEntity<Post> createPost(@RequestBody final Post post) {
+	public ResponseEntity<PostEntity> createPost(@RequestBody final PostEntity post) {
 		final var createdPost = postService.save(post);
-		return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
+		return ResponseEntity.status(HttpStatus.CREATED).body(createdPost);
 	}
 
-	// Endpoint pour supprimer un post
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deletePost(@PathVariable("id") final Post id) {
+	public ResponseEntity<Void> deletePost(@PathVariable final PostEntity id) {
 		postService.delete(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
-
-//	@GetMapping("/{postId}/response/{userResponse}")
-//	public String checkUserResponse(@PathVariable final Long postId, @PathVariable final boolean userResponse) {
-//		// Récupérer le post par son ID
-//		final var post = postService.findById(postId);
-//
-//		// Vérifier si la réponse de l'utilisateur correspond à la valeur boolean du
-//		// post
-//		if (post == null) {
-//			return "Post not found!";
-//		}
-//		if (userResponse == post.isTrue()) {
-//			return "Correct!";
-//		}
-//		return "Incorrect!";
-//	}
 
 	@PostMapping("/{postId}/reactions")
 	public ResponseEntity<?> reactToPost(@PathVariable final Long postId, @RequestBody final boolean reaction) {

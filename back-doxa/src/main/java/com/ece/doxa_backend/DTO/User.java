@@ -3,75 +3,122 @@ package com.ece.doxa_backend.DTO;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Entity
-@Table(name = "User")
-@NoArgsConstructor
-@AllArgsConstructor
 public class User {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_user")
 	private Long id;
-
-	@Column(name = "username", unique = true, nullable = false)
 	private String username;
-
-	@Column(name = "photo")
 	private String photo;
-
-	@Column(name = "description")
 	private String description;
-
-	@Column(name = "creation_date")
-	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date creationDate;
-
-	@Column(name = "is_checked", nullable = false, columnDefinition = "BOOLEAN")
 	private Boolean isChecked;
-
-	@OneToMany
 	private List<Comment> comments;
-
-	@OneToMany
 	private List<Abonnement> following;
-
-	@OneToMany
 	private List<Abonnement> followers;
-
-	@OneToMany
 	private List<True> likes;
-
-	@OneToMany(mappedBy = "userTransmitter")
 	private List<Message> messagesTransmitted;
-
-	@OneToMany(mappedBy = "userReceiver")
 	private List<Message> messagesReceived;
-
-	@OneToMany
 	private List<Post> posts;
 
-	public User(final Long idUser, final String username, final String photo, final String description, final Date creationDate,
-			final Boolean isChecked) {
-		id = idUser;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(final Long id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(final String username) {
 		this.username = username;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(final String photo) {
 		this.photo = photo;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(final String description) {
 		this.description = description;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(final Date creationDate) {
 		this.creationDate = creationDate;
-		this.isChecked = isChecked;
+	}
+
+	public Boolean getChecked() {
+		return isChecked;
+	}
+
+	public void setChecked(final Boolean checked) {
+		isChecked = checked;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(final List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Abonnement> getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(final List<Abonnement> following) {
+		this.following = following;
+	}
+
+	public List<Abonnement> getFollowers() {
+		return followers;
+	}
+
+	public void setFollowers(final List<Abonnement> followers) {
+		this.followers = followers;
+	}
+
+	public List<True> getLikes() {
+		return likes;
+	}
+
+	public void setLikes(final List<True> likes) {
+		this.likes = likes;
+	}
+
+	public List<Message> getMessagesTransmitted() {
+		return messagesTransmitted;
+	}
+
+	public void setMessagesTransmitted(final List<Message> messagesTransmitted) {
+		this.messagesTransmitted = messagesTransmitted;
+	}
+
+	public List<Message> getMessagesReceived() {
+		return messagesReceived;
+	}
+
+	public void setMessagesReceived(final List<Message> messagesReceived) {
+		this.messagesReceived = messagesReceived;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(final List<Post> posts) {
+		this.posts = posts;
 	}
 }

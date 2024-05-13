@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.MessageDAO;
-import com.ece.doxa_backend.models.Message;
+import com.ece.doxa_backend.models.MessageEntity;
 
 @Service
 public class MessageService {
@@ -16,27 +16,27 @@ public class MessageService {
 	MessageDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<Message> toList() {
+	public List<MessageEntity> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public Message save(final Message entity) {
+	public MessageEntity save(final MessageEntity entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final Message entity) {
+	public void delete(final MessageEntity entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public Message findById(final Long id) {
+	public MessageEntity findById(final Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
 	@Transactional(readOnly = true)
-	public List<Message> findByUserTransmitterIdAndUserReceiverId(final Long userTransmitterId, final Long userReceiverId) {
+	public List<MessageEntity> findByUserTransmitterIdAndUserReceiverId(final Long userTransmitterId, final Long userReceiverId) {
 		return repository.findByUserTransmitterIdAndUserReceiverId(userTransmitterId, userReceiverId);
 	}
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ece.doxa_backend.DAO.PostDAO;
-import com.ece.doxa_backend.models.Post;
+import com.ece.doxa_backend.models.PostEntity;
 
 @Service
 public class PostService {
@@ -16,22 +16,22 @@ public class PostService {
 	PostDAO repository;
 
 	@Transactional(readOnly = true)
-	public List<Post> toList() {
+	public List<PostEntity> toList() {
 		return repository.findAll();
 	}
 
 	@Transactional
-	public Post save(final Post entity) {
+	public PostEntity save(final PostEntity entity) {
 		return repository.save(entity);
 	}
 
 	@Transactional
-	public void delete(final Post entity) {
+	public void delete(final PostEntity entity) {
 		repository.delete(entity);
 	}
 
 	@Transactional(readOnly = true)
-	public Post findById(final Long id) {
+	public PostEntity findById(final Long id) {
 		return repository.findById(id).orElse(null);
 	}
 
@@ -41,7 +41,7 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Post> findFollowingFeedByUserId(final Long idUser, final Integer from) {
+	public List<PostEntity> findFollowingFeedByUserId(final Long idUser, final Integer from) {
 		return repository.findFollowingFeedByUser(idUser, from);
 	}
 
@@ -51,7 +51,7 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Post> findOldFollowingFeedByUserId(final Long idUser, final Integer from) {
+	public List<PostEntity> findOldFollowingFeedByUserId(final Long idUser, final Integer from) {
 		return repository.findOldFollowingFeedByUser(idUser, from);
 	}
 
@@ -61,7 +61,7 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<Post> findPostsByUserId(final Long idUser, final Integer from) {
+	public List<PostEntity> findPostsByUserId(final Long idUser, final Integer from) {
 		return repository.findPostsByUser(idUser, from);
 	}
 
@@ -70,7 +70,7 @@ public class PostService {
 		return repository.findLastIdPostFromPostsByUser(idUser);
 	}
 
-	public List<Post> getAllPosts() {
+	public List<PostEntity> getAllPosts() {
 		return repository.findAll();
 	}
 

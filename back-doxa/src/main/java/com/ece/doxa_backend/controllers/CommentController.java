@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ece.doxa_backend.models.Comment;
+import com.ece.doxa_backend.models.CommentEntity;
 import com.ece.doxa_backend.services.CommentService;
 
 @RestController
@@ -30,14 +30,14 @@ public class CommentController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Comment>> getAllComments() {
+	public ResponseEntity<List<CommentEntity>> getAllComments() {
 		final var comments = commentService.toList();
 		return new ResponseEntity<>(comments, HttpStatus.OK);
 	}
 
 	@PostMapping
-	public ResponseEntity<Comment> createComment(@RequestBody final Comment comment) {
-		final var savedComment = commentService.save(comment);
+	public ResponseEntity<CommentEntity> createComment(@RequestBody final CommentEntity commentEntity) {
+		final var savedComment = commentService.save(commentEntity);
 		return new ResponseEntity<>(savedComment, HttpStatus.CREATED);
 	}
 
@@ -52,7 +52,7 @@ public class CommentController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Comment> getCommentById(@PathVariable final Long id) {
+	public ResponseEntity<CommentEntity> getCommentById(@PathVariable final Long id) {
 		final var comment = commentService.findById(id);
 		if (comment != null) {
 			return new ResponseEntity<>(comment, HttpStatus.OK);
@@ -61,7 +61,7 @@ public class CommentController {
 	}
 
 	@GetMapping("/Post/{id}")
-	public ResponseEntity<List<Comment>> getCommentsByPostId(@PathVariable final Long id) {
+	public ResponseEntity<List<CommentEntity>> getCommentsByPostId(@PathVariable final Long id) {
 		final var comments = commentService.toList();
 		return new ResponseEntity<>(comments, HttpStatus.OK);
 	}
